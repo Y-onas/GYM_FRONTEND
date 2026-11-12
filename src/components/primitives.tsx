@@ -3,6 +3,7 @@ import { imageSet, type ImageName } from '../lib/images';
 import { useInView } from '../lib/hooks';
 import { useClubStatus } from '../lib/hooks';
 import { TLink } from './Transition';
+import { useTheme } from '../state/theme';
 import './primitives.css';
 
 /* ---------- Img ---------- */
@@ -128,7 +129,7 @@ export function Mark({ className = '' }: { className?: string }) {
 }
 
 /* ---------- buttons ---------- */
-type BtnProps = { to: string; children: ReactNode; variant?: 'solid' | 'sulfur' | 'line'; small?: boolean; className?: string; arrow?: boolean };
+type BtnProps = { to: string; children: ReactNode; variant?: 'solid' | 'signal' | 'line'; small?: boolean; className?: string; arrow?: boolean };
 
 export function ButtonLink({ to, children, variant = 'line', small, className = '', arrow = true }: BtnProps) {
   return (
@@ -143,6 +144,7 @@ export function ButtonLink({ to, children, variant = 'line', small, className = 
 export function FitText({ children, className = '', as = 'div', label }: { children: ReactNode; className?: string; as?: ElementType; label?: string }) {
   const outer = useRef<HTMLElement>(null);
   const inner = useRef<HTMLSpanElement>(null);
+  const { theme } = useTheme();
   useLayoutEffect(() => {
     const o = outer.current;
     const n = inner.current;
@@ -159,7 +161,7 @@ export function FitText({ children, className = '', as = 'div', label }: { child
     ro.observe(o);
     document.fonts?.ready.then(fit);
     return () => ro.disconnect();
-  }, []);
+  }, [theme]);
   return createElement(
     as,
     { ref: outer, className: `fit ${className}`, 'aria-label': label },

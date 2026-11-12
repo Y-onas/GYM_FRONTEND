@@ -1,23 +1,14 @@
 /* ==========================================================================
    BASALT — design system
-   Basalt ink, limestone paper, one sulfur signal. Sharp edges, hairlines.
+   Raw colours live only in themes.css. Sections declare a ROLE (tone-*);
+   each theme decides what that role looks like — light, dark, saturated.
+   Components read only the semantic tokens set here.
    ========================================================================== */
 
 :root {
-  --ink: #12110f;
-  --ink-2: #1b1a17;
-  --ink-3: #26241f;
-  --paper: #ece7dd;
-  --paper-2: #e2dccf;
-  --bone: #f6f3ed;
-  --stone: #8a8478;
-  --stone-2: #5f5a51;
-  --stone-l: #b8b2a5;
-  --sulfur: #e6d34a;
-  --sulfur-d: #b9a71f;
-
   --f-sans: 'Archivo Variable', Archivo, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --f-serif: 'Instrument Serif', 'Iowan Old Style', 'Times New Roman', serif;
+  --f-soft: 'Fraunces Variable', 'Iowan Old Style', Georgia, serif;
   --f-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
   --pad: clamp(20px, 4.2vw, 72px);
@@ -28,70 +19,136 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-io: cubic-bezier(0.76, 0, 0.24, 1);
   --ease-snap: cubic-bezier(0.65, 0, 0.35, 1);
-
-  /* themable */
-  --bg: var(--paper);
-  --fg: var(--ink);
-  --muted: var(--stone-2);
-  --line: rgb(18 17 15 / 0.16);
-  --line-strong: rgb(18 17 15 / 0.42);
-  --focus: var(--ink);
-  --accent: var(--ink);
 }
 
-.theme-ink {
-  --bg: var(--ink);
-  --fg: var(--paper);
-  --muted: var(--stone);
-  --line: rgb(236 231 221 / 0.14);
-  --line-strong: rgb(236 231 221 / 0.4);
-  --focus: var(--sulfur);
-  --accent: var(--sulfur);
-  background: var(--bg);
-  color: var(--fg);
+/* ---------- section roles ----------
+   Optional theme vars fall back to sensible derivations, so a theme only
+   declares what it wants to art-direct. Derived tokens are declared on the
+   same element as their inputs because custom properties inherit resolved. */
+:root,
+.tone-base {
+  --bg: var(--base-bg);
+  --fg: var(--base-fg);
+  --muted: var(--base-muted);
+  --soft: var(--base-soft, var(--base-muted));
+  --heading: var(--base-head, var(--base-fg));
+  --accent: var(--base-accent);
+  --cta: var(--base-cta, var(--base-accent));
+  --cta-ink: var(--base-cta-ink, var(--base-bg));
+  --error: var(--base-error, var(--danger));
+  --surface: var(--base-surface, color-mix(in srgb, var(--base-fg) 5%, var(--base-bg)));
+  --surface-image: var(--base-image, none);
+  --line: var(--base-line, color-mix(in srgb, var(--base-fg) 16%, transparent));
+  --line-strong: color-mix(in srgb, var(--base-fg) 42%, transparent);
 }
-.theme-ink-2 {
-  --bg: var(--ink-2);
-  --fg: var(--paper);
-  --muted: var(--stone);
-  --line: rgb(236 231 221 / 0.14);
-  --line-strong: rgb(236 231 221 / 0.4);
-  --focus: var(--sulfur);
-  --accent: var(--sulfur);
-  background: var(--bg);
-  color: var(--fg);
+.tone-raised {
+  --bg: var(--raised-bg);
+  --fg: var(--raised-fg, var(--base-fg));
+  --muted: var(--raised-muted, var(--base-muted));
+  --soft: var(--raised-soft, var(--base-soft, var(--base-muted)));
+  --heading: var(--raised-head, var(--base-head, var(--base-fg)));
+  --accent: var(--raised-accent, var(--base-accent));
+  --cta: var(--raised-cta, var(--base-cta, var(--base-accent)));
+  --cta-ink: var(--raised-cta-ink, var(--base-cta-ink, var(--raised-bg)));
+  --error: var(--raised-error, var(--base-error, var(--danger)));
+  --surface: var(--raised-surface, color-mix(in srgb, var(--fg) 5%, var(--raised-bg)));
+  --surface-image: var(--raised-image, none);
+  --line: var(--raised-line, color-mix(in srgb, var(--fg) 14%, transparent));
+  --line-strong: color-mix(in srgb, var(--fg) 42%, transparent);
 }
-.theme-paper {
-  --bg: var(--paper);
-  --fg: var(--ink);
-  --muted: var(--stone-2);
-  --line: rgb(18 17 15 / 0.16);
-  --line-strong: rgb(18 17 15 / 0.42);
-  --focus: var(--ink);
-  --accent: var(--ink);
-  background: var(--bg);
-  color: var(--fg);
+.tone-hero {
+  --bg: var(--hero-bg);
+  --fg: var(--hero-fg);
+  --muted: var(--hero-muted);
+  --soft: var(--hero-soft, var(--hero-muted));
+  --heading: var(--hero-head, var(--hero-fg));
+  --accent: var(--hero-accent);
+  --cta: var(--hero-cta, var(--hero-accent));
+  --cta-ink: var(--hero-cta-ink, var(--hero-bg));
+  --error: var(--hero-error, var(--danger));
+  --surface: var(--hero-surface, color-mix(in srgb, var(--hero-fg) 7%, var(--hero-bg)));
+  --surface-image: var(--hero-image, none);
+  --line: var(--hero-line, color-mix(in srgb, var(--hero-fg) 16%, transparent));
+  --line-strong: color-mix(in srgb, var(--hero-fg) 42%, transparent);
 }
-.theme-bone {
-  --bg: var(--bone);
-  --fg: var(--ink);
-  --muted: var(--stone-2);
-  --line: rgb(18 17 15 / 0.14);
-  --line-strong: rgb(18 17 15 / 0.42);
-  --focus: var(--ink);
-  --accent: var(--ink);
-  background: var(--bg);
-  color: var(--fg);
+.tone-deep {
+  --bg: var(--deep-bg);
+  --fg: var(--deep-fg);
+  --muted: var(--deep-muted);
+  --soft: var(--deep-soft, var(--deep-muted));
+  --heading: var(--deep-head, var(--deep-fg));
+  --accent: var(--deep-accent);
+  --cta: var(--deep-cta, var(--deep-accent));
+  --cta-ink: var(--deep-cta-ink, var(--deep-bg));
+  --error: var(--deep-error, var(--danger));
+  --surface: var(--deep-surface, color-mix(in srgb, var(--deep-fg) 7%, var(--deep-bg)));
+  --surface-image: var(--deep-image, none);
+  --line: var(--deep-line, color-mix(in srgb, var(--deep-fg) 15%, transparent));
+  --line-strong: color-mix(in srgb, var(--deep-fg) 40%, transparent);
 }
-.theme-sulfur {
-  --bg: var(--sulfur);
-  --fg: var(--ink);
-  --muted: rgb(18 17 15 / 0.66);
-  --line: rgb(18 17 15 / 0.2);
-  --line-strong: rgb(18 17 15 / 0.5);
-  --focus: var(--ink);
-  --accent: var(--ink);
-  background: var(--bg);
+.tone-deep2 {
+  --bg: var(--deep2-bg);
+  --fg: var(--deep2-fg);
+  --muted: var(--deep2-muted);
+  --soft: var(--deep2-soft, var(--deep2-muted));
+  --heading: var(--deep2-head, var(--deep2-fg));
+  --accent: var(--deep2-accent);
+  --cta: var(--deep2-cta, var(--deep2-accent));
+  --cta-ink: var(--deep2-cta-ink, var(--deep2-bg));
+  --error: var(--deep2-error, var(--danger));
+  --surface: var(--deep2-surface, color-mix(in srgb, var(--deep2-fg) 7%, var(--deep2-bg)));
+  --surface-image: var(--deep2-image, none);
+  --line: var(--deep2-line, color-mix(in srgb, var(--deep2-fg) 15%, transparent));
+  --line-strong: color-mix(in srgb, var(--deep2-fg) 40%, transparent);
+}
+.tone-accent {
+  --bg: var(--accent-bg);
+  --fg: var(--accent-fg);
+  --muted: var(--accent-muted);
+  --soft: var(--accent-soft, var(--accent-muted));
+  --heading: var(--accent-head, var(--accent-fg));
+  --accent: var(--accent-accent, var(--accent-fg));
+  --cta: var(--accent-cta, var(--accent-fg));
+  --cta-ink: var(--accent-cta-ink, var(--accent-bg));
+  --error: var(--accent-fg);
+  --surface: var(--accent-surface, color-mix(in srgb, var(--accent-fg) 8%, var(--accent-bg)));
+  --surface-image: var(--accent-image, none);
+  --line: color-mix(in srgb, var(--accent-fg) 22%, transparent);
+  --line-strong: color-mix(in srgb, var(--accent-fg) 50%, transparent);
+}
+.tone-footer {
+  --bg: var(--footer-bg);
+  --fg: var(--footer-fg);
+  --muted: var(--footer-muted);
+  --soft: var(--footer-soft, var(--footer-muted));
+  --heading: var(--footer-head, var(--footer-fg));
+  --accent: var(--footer-accent);
+  --cta: var(--footer-cta, var(--footer-accent));
+  --cta-ink: var(--footer-cta-ink, var(--footer-bg));
+  --error: var(--footer-error, var(--danger));
+  --surface: color-mix(in srgb, var(--footer-fg) 7%, var(--footer-bg));
+  --surface-image: var(--footer-image, none);
+  --line: var(--footer-line, color-mix(in srgb, var(--footer-fg) 14%, transparent));
+  --line-strong: color-mix(in srgb, var(--footer-fg) 40%, transparent);
+}
+:root,
+.tone-base,
+.tone-raised,
+.tone-hero,
+.tone-deep,
+.tone-deep2,
+.tone-accent,
+.tone-footer {
+  --focus: var(--heading);
+}
+.tone-base,
+.tone-raised,
+.tone-hero,
+.tone-deep,
+.tone-deep2,
+.tone-accent,
+.tone-footer {
+  background: var(--surface-image), var(--bg);
   color: var(--fg);
 }
 
@@ -108,7 +165,7 @@ html {
 }
 body {
   margin: 0;
-  background: var(--ink);
+  background: var(--hero-bg);
   color: var(--fg);
   font-family: var(--f-sans);
   font-size: 17px;
@@ -165,8 +222,8 @@ button {
   cursor: pointer;
 }
 ::selection {
-  background: var(--sulfur);
-  color: var(--ink);
+  background: var(--cta);
+  color: var(--cta-ink);
 }
 :focus-visible {
   outline: 2px solid var(--focus);
@@ -183,7 +240,7 @@ body::after {
   inset: -50%;
   z-index: 9000;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: var(--grain);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -201,8 +258,8 @@ body::after {
   left: 12px;
   z-index: 10000;
   padding: 12px 16px;
-  background: var(--sulfur);
-  color: var(--ink);
+  background: var(--cta);
+  color: var(--cta-ink);
   font: 600 13px/1 var(--f-mono);
   text-transform: uppercase;
   transform: translateY(-200%);
@@ -239,59 +296,64 @@ body::after {
 
 /* ---------- type ---------- */
 .t-label {
-  font-family: var(--f-mono);
-  font-size: 12px;
+  font-family: var(--l-font);
+  font-size: var(--l-size);
   line-height: 1.4;
-  font-weight: 400;
-  letter-spacing: 0.08em;
+  font-weight: var(--l-weight);
+  font-stretch: var(--l-stretch, 100%);
+  letter-spacing: var(--l-track);
   text-transform: uppercase;
 }
 .t-label--muted {
   color: var(--muted);
 }
+/* display words: pillar names, plan names, wordmarks */
 .t-wide {
-  font-family: var(--f-sans);
-  font-stretch: 125%;
-  font-weight: 750;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 0.92;
+  font-family: var(--d-font);
+  font-stretch: var(--d-stretch);
+  font-weight: var(--d-weight);
+  font-style: var(--d-style);
+  text-transform: var(--d-case);
+  letter-spacing: var(--d-track);
+  line-height: var(--d-lh, 0.92);
+}
+.t-display,
+.t-h1,
+.t-h2,
+.t-h3 {
+  color: var(--heading);
+  font-family: var(--h-font);
+  font-weight: var(--h-weight);
+  font-stretch: var(--h-stretch);
+  font-style: var(--h-style);
+  text-transform: var(--h-case);
+  letter-spacing: var(--h-track);
+  font-variation-settings: var(--h-axes, normal);
 }
 .t-display {
-  font-family: var(--f-serif);
-  font-weight: 400;
-  font-size: clamp(3.2rem, 8.6vw, 10rem);
-  line-height: 0.9;
-  letter-spacing: -0.025em;
+  font-size: calc(clamp(3.2rem, 8.6vw, 10rem) * var(--h-scale));
+  line-height: calc(0.9 * var(--h-lh));
 }
 .t-h1 {
-  font-family: var(--f-serif);
-  font-weight: 400;
-  font-size: clamp(2.9rem, 6.6vw, 7.6rem);
-  line-height: 0.94;
-  letter-spacing: -0.02em;
+  font-size: calc(clamp(2.9rem, 6.6vw, 7.6rem) * var(--h-scale));
+  line-height: calc(0.94 * var(--h-lh));
 }
 .t-h2 {
-  font-family: var(--f-serif);
-  font-weight: 400;
-  font-size: clamp(2.3rem, 4.8vw, 5.2rem);
-  line-height: 0.98;
-  letter-spacing: -0.018em;
+  font-size: calc(clamp(2.3rem, 4.8vw, 5.2rem) * var(--h-scale));
+  line-height: calc(0.98 * var(--h-lh));
 }
 .t-h3 {
-  font-family: var(--f-serif);
-  font-weight: 400;
-  font-size: clamp(1.7rem, 2.6vw, 2.6rem);
-  line-height: 1.04;
-  letter-spacing: -0.01em;
+  font-size: calc(clamp(1.7rem, 2.6vw, 2.6rem) * var(--h-scale));
+  line-height: calc(1.04 * var(--h-lh));
 }
+/* small strong labels: class names, coach names, row titles */
 .t-h4 {
-  font-family: var(--f-sans);
-  font-stretch: 115%;
-  font-weight: 650;
+  font-family: var(--k-font);
+  font-stretch: var(--k-stretch);
+  font-weight: var(--k-weight);
   font-size: 15px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+  letter-spacing: var(--k-track);
+  text-transform: var(--k-case);
   line-height: 1.2;
 }
 .t-lede {
@@ -304,23 +366,25 @@ body::after {
   max-width: 38em;
 }
 .t-num {
-  font-family: var(--f-sans);
-  font-stretch: 125%;
-  font-weight: 300;
+  font-family: var(--n-font);
+  font-stretch: var(--n-stretch);
+  font-weight: var(--n-weight);
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--n-track);
 }
 em,
 .t-italic {
-  font-family: var(--f-serif);
-  font-style: italic;
-  font-weight: 400;
+  font-family: var(--em-font);
+  font-style: var(--em-style);
+  font-weight: var(--em-weight);
+  font-stretch: var(--em-stretch, 100%);
 }
 .t-display em,
 .t-h1 em,
 .t-h2 em,
 .t-h3 em {
-  letter-spacing: -0.01em;
+  color: color-mix(in srgb, var(--accent) var(--em-mix, 0%), currentColor);
+  letter-spacing: var(--em-track, -0.01em);
 }
 
 /* eyebrow: index + label pair used to open sections */
@@ -328,9 +392,11 @@ em,
   display: flex;
   align-items: center;
   gap: 14px;
-  font-family: var(--f-mono);
+  font-family: var(--l-font);
+  font-weight: var(--l-weight);
+  font-stretch: var(--l-stretch, 100%);
   font-size: 12px;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--l-track);
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -359,17 +425,18 @@ em,
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  min-height: 54px;
+  min-height: var(--btn-h);
   padding: 0 20px 0 22px;
   border: 1px solid var(--line-strong);
   background: var(--btn-bg);
   color: var(--btn-fg);
-  font-family: var(--f-sans);
-  font-stretch: 112%;
-  font-weight: 600;
+  border-radius: var(--r-btn);
+  font-family: var(--btn-font, var(--f-sans));
+  font-stretch: var(--btn-stretch);
+  font-weight: var(--btn-weight);
   font-size: 13px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: var(--btn-track);
+  text-transform: var(--btn-case);
   white-space: nowrap;
   overflow: hidden;
   isolation: isolate;
@@ -407,20 +474,16 @@ em,
 .btn--solid {
   --btn-bg: var(--fg);
   --btn-fg: var(--bg);
-  --btn-fill: var(--accent);
-  --btn-fill-fg: var(--bg);
+  --btn-fill: var(--cta);
+  --btn-fill-fg: var(--cta-ink);
   border-color: var(--fg);
 }
-.theme-ink .btn--solid,
-.theme-ink-2 .btn--solid {
-  --btn-fill-fg: var(--ink);
-}
-.btn--sulfur {
-  --btn-bg: var(--sulfur);
-  --btn-fg: var(--ink);
-  --btn-fill: var(--paper);
-  --btn-fill-fg: var(--ink);
-  border-color: var(--sulfur);
+.btn--signal {
+  --btn-bg: var(--cta);
+  --btn-fg: var(--cta-ink);
+  --btn-fill: var(--fg);
+  --btn-fill-fg: var(--bg);
+  border-color: var(--cta);
 }
 .btn--small {
   min-height: 42px;
@@ -463,9 +526,11 @@ em,
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--f-mono);
+  font-family: var(--l-font);
+  font-weight: var(--l-weight);
+  font-stretch: var(--l-stretch, 100%);
   font-size: 11px;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--l-track);
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -479,8 +544,8 @@ em,
   background: var(--fg);
 }
 .tag--heat::before {
-  background: var(--sulfur);
-  box-shadow: 0 0 0 1px rgb(18 17 15 / 0.25);
+  background: var(--cta);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--fg) 25%, transparent);
 }
 .tag--time::before {
   background: transparent;
@@ -523,7 +588,7 @@ em,
 .img-mask {
   position: relative;
   overflow: hidden;
-  background: var(--ink-3);
+  background: var(--ph-bg);
 }
 .img-mask > .img {
   transform: scale(1.12);
@@ -547,6 +612,7 @@ em,
   height: 100%;
   object-fit: cover;
   opacity: 0;
+  filter: var(--ph-filter);
   transition: opacity 0.8s var(--ease-out);
 }
 .img.is-loaded {
@@ -570,9 +636,11 @@ em,
   gap: 8px;
 }
 .field__label {
-  font-family: var(--f-mono);
+  font-family: var(--l-font);
+  font-weight: var(--l-weight);
+  font-stretch: var(--l-stretch, 100%);
   font-size: 11px;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--l-track);
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -602,8 +670,8 @@ select.field__input {
   cursor: pointer;
 }
 select.field__input option {
-  color: var(--ink);
-  background: var(--paper);
+  color: var(--fg);
+  background: var(--bg);
 }
 .field__input::placeholder {
   color: var(--muted);
@@ -617,21 +685,12 @@ select.field__input option {
   box-shadow: 0 2px 0 0 var(--focus);
 }
 .field[data-invalid='true'] .field__input {
-  border-bottom-color: #c4572b;
+  border-bottom-color: var(--error);
 }
 .field__error {
   font-family: var(--f-mono);
   font-size: 12px;
-  color: #c4572b;
-}
-.theme-ink .field__error,
-.theme-ink-2 .field__error,
-.theme-ink .field[data-invalid='true'] .field__input {
-  color: #f08a5d;
-  border-bottom-color: #f08a5d;
-}
-.theme-ink .field[data-invalid='true'] .field__input {
-  color: var(--fg);
+  color: var(--error);
 }
 
 .chip {
@@ -641,9 +700,11 @@ select.field__input option {
   min-height: 40px;
   padding: 0 14px;
   border: 1px solid var(--line-strong);
-  font-family: var(--f-mono);
+  font-family: var(--l-font);
+  font-weight: var(--l-weight);
+  font-stretch: var(--l-stretch, 100%);
   font-size: 12px;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--l-track);
   text-transform: uppercase;
   transition:
     background 0.3s,

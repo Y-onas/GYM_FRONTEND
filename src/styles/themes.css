@@ -1,0 +1,653 @@
+/* ==========================================================================
+   BASALT — five brand identities
+   The only file with raw colour values. Each theme art-directs:
+     · section roles   hero / deep / deep2 / base / raised / accent / footer
+                       (-bg -fg -muted -soft -head -accent -cta -cta-ink -image …)
+     · typography      --h-* headings, --em-* emphasis, --d-* display words,
+                       --k-* strong labels, --l-* small labels, --n-* numbers
+     · shape           --r-btn --r-card --r-img --r-chip
+     · buttons         --btn-*
+     · photography     --ph-filter (all source photos are natural colour)
+     · chrome          --sw-a/b/c swatch chip, --shadow, --grain, --warn, --danger
+   Layout variations per theme live in styles/skins.css.
+   ========================================================================== */
+
+/* 01 · BASALT — volcanic editorial. Cooled lava, limestone, one sulfur vent.
+   Dark-led, monochrome photography, serif + wide grotesque, razor edges. */
+:root,
+[data-theme='basalt'] {
+  --sw-a: #12110f;
+  --sw-b: #e6d34a;
+  --sw-c: #ece7dd;
+
+  --hero-bg: #12110f;
+  --hero-fg: #ece7dd;
+  --hero-muted: #8f897d;
+  --hero-soft: #b8b2a5;
+  --hero-head: #f6f3ed;
+  --hero-accent: #e6d34a;
+  --hero-cta-ink: #12110f;
+  --hero-error: #f08a5d;
+
+  --deep-bg: #12110f;
+  --deep-fg: #ece7dd;
+  --deep-muted: #8f897d;
+  --deep-soft: #b8b2a5;
+  --deep-head: #f6f3ed;
+  --deep-accent: #e6d34a;
+  --deep-cta-ink: #12110f;
+  --deep-error: #f08a5d;
+
+  --deep2-bg: #1b1a17;
+  --deep2-fg: #ece7dd;
+  --deep2-muted: #8f897d;
+  --deep2-soft: #b8b2a5;
+  --deep2-head: #f6f3ed;
+  --deep2-accent: #e6d34a;
+  --deep2-cta-ink: #12110f;
+  --deep2-surface: #12110f;
+  --deep2-error: #f08a5d;
+
+  --base-bg: #ece7dd;
+  --base-fg: #12110f;
+  --base-muted: #5f5a51;
+  --base-soft: #4d4942;
+  --base-accent: #12110f;
+  --base-cta: #e6d34a;
+  --base-cta-ink: #12110f;
+  --base-surface: #e2dccf;
+
+  --raised-bg: #f6f3ed;
+  --raised-surface: #ece7dd;
+
+  --accent-bg: #e6d34a;
+  --accent-fg: #12110f;
+  --accent-muted: #3f3a17;
+
+  --footer-bg: #12110f;
+  --footer-fg: #ece7dd;
+  --footer-muted: #8f897d;
+  --footer-soft: #b8b2a5;
+  --footer-accent: #e6d34a;
+  --footer-cta-ink: #12110f;
+  --footer-error: #f08a5d;
+
+  --warn: #9a4b1b;
+  --danger: #b0441c;
+  --shadow: #000000;
+  --ph-bg: #26241f;
+  --ph-filter: grayscale(0.88) sepia(0.16) contrast(1.06) brightness(0.98);
+  --grain: 0.05;
+
+  --h-font: var(--f-serif);
+  --h-weight: 400;
+  --h-stretch: 100%;
+  --h-style: normal;
+  --h-case: none;
+  --h-track: -0.02em;
+  --h-scale: 1;
+  --h-lh: 1;
+  --em-font: var(--f-serif);
+  --em-style: italic;
+  --em-weight: 400;
+  --em-mix: 0%;
+  --d-font: var(--f-sans);
+  --d-weight: 750;
+  --d-stretch: 125%;
+  --d-style: normal;
+  --d-case: uppercase;
+  --d-track: -0.01em;
+  --k-font: var(--f-sans);
+  --k-weight: 650;
+  --k-stretch: 118%;
+  --k-case: uppercase;
+  --k-track: 0.01em;
+  --l-font: var(--f-mono);
+  --l-weight: 400;
+  --l-size: 12px;
+  --l-track: 0.08em;
+  --n-font: var(--f-sans);
+  --n-weight: 300;
+  --n-stretch: 125%;
+  --n-track: -0.03em;
+  --btn-font: var(--f-sans);
+  --btn-weight: 600;
+  --btn-stretch: 112%;
+  --btn-case: uppercase;
+  --btn-track: 0.06em;
+  --btn-h: 54px;
+  --r-btn: 0px;
+  --r-card: 0px;
+  --r-img: 0px;
+  --r-chip: 0px;
+}
+
+/* 02 · ATELIER — refined luxury. Espresso lacquer, cream card, bronze leaf.
+   Warm-graded colour photography, high-contrast serif, spaced small caps,
+   symmetrical compositions and arched frames. */
+[data-theme='atelier'] {
+  --sw-a: #2a1d15;
+  --sw-b: #c9975e;
+  --sw-c: #f4ece0;
+
+  --hero-bg: #221812;
+  --hero-fg: #efe4d4;
+  --hero-muted: #a89786;
+  --hero-soft: #cdbca8;
+  --hero-head: #f7ecdc;
+  --hero-accent: #d9ab6e;
+  --hero-cta-ink: #221812;
+  --hero-error: #f2a08a;
+  --hero-surface: #2d2119;
+  --hero-line: rgb(217 171 110 / 0.26);
+
+  --deep-bg: #2a1e17;
+  --deep-fg: #efe4d4;
+  --deep-muted: #ab9a89;
+  --deep-soft: #cdbca8;
+  --deep-head: #f7ecdc;
+  --deep-accent: #d9ab6e;
+  --deep-cta-ink: #221812;
+  --deep-error: #f2a08a;
+  --deep-surface: #33261d;
+  --deep-line: rgb(217 171 110 / 0.24);
+
+  --deep2-bg: #33261d;
+  --deep2-fg: #efe4d4;
+  --deep2-muted: #b29f8c;
+  --deep2-soft: #d2c1ad;
+  --deep2-head: #f7ecdc;
+  --deep2-accent: #e0b57b;
+  --deep2-cta-ink: #221812;
+  --deep2-error: #f2a08a;
+  --deep2-surface: #2a1e17;
+  --deep2-line: rgb(217 171 110 / 0.26);
+
+  --base-bg: #f4ece0;
+  --base-fg: #2a1f18;
+  --base-muted: #6c5c4e;
+  --base-soft: #5a4a3e;
+  --base-head: #221812;
+  --base-accent: #8a5726;
+  --base-cta: #2a1e17;
+  --base-cta-ink: #f4ece0;
+  --base-surface: #ebe0cf;
+  --base-line: rgb(138 87 38 / 0.22);
+
+  --raised-bg: #fbf6ee;
+  --raised-surface: #f2e8da;
+  --raised-line: rgb(138 87 38 / 0.2);
+
+  --accent-bg: #c9975e;
+  --accent-fg: #221812;
+  --accent-muted: #452f1e;
+  --accent-cta-ink: #f4e3c9;
+
+  --footer-bg: #1a120d;
+  --footer-fg: #efe4d4;
+  --footer-muted: #a08f7e;
+  --footer-soft: #cdbca8;
+  --footer-head: #f7ecdc;
+  --footer-accent: #d9ab6e;
+  --footer-cta-ink: #1a120d;
+  --footer-error: #f2a08a;
+  --footer-line: rgb(217 171 110 / 0.22);
+
+  --warn: #8c3a2a;
+  --danger: #9e2f2a;
+  --shadow: #120a05;
+  --ph-bg: #3a2b21;
+  --ph-filter: sepia(0.34) saturate(0.82) contrast(1.05) brightness(1.01);
+  --grain: 0.04;
+
+  --h-font: var(--f-serif);
+  --h-weight: 400;
+  --h-stretch: 100%;
+  --h-style: normal;
+  --h-case: none;
+  --h-track: -0.012em;
+  --h-scale: 1.06;
+  --h-lh: 1.03;
+  --em-font: var(--f-serif);
+  --em-style: italic;
+  --em-weight: 400;
+  --em-mix: 100%;
+  --d-font: var(--f-serif);
+  --d-weight: 400;
+  --d-stretch: 100%;
+  --d-style: italic;
+  --d-case: none;
+  --d-track: -0.01em;
+  --k-font: var(--f-sans);
+  --k-weight: 500;
+  --k-stretch: 100%;
+  --k-case: uppercase;
+  --k-track: 0.16em;
+  --l-font: var(--f-sans);
+  --l-weight: 500;
+  --l-stretch: 100%;
+  --l-size: 11px;
+  --l-track: 0.22em;
+  --n-font: var(--f-serif);
+  --n-weight: 400;
+  --n-stretch: 100%;
+  --n-track: -0.01em;
+  --btn-font: var(--f-sans);
+  --btn-weight: 500;
+  --btn-stretch: 100%;
+  --btn-case: uppercase;
+  --btn-track: 0.2em;
+  --btn-h: 54px;
+  --r-btn: 0px;
+  --r-card: 0px;
+  --r-img: 0px;
+  --r-chip: 0px;
+}
+
+/* 03 · GROVE — natural strength. Oat linen, sage, deep forest, moss.
+   Light-led, soft rounded geometry, organic blob frames, a soft serif,
+   sentence-case labels, natural daylight photography. */
+[data-theme='grove'] {
+  --sw-a: #1f3a2b;
+  --sw-b: #a9c27f;
+  --sw-c: #f1ede2;
+
+  --hero-bg: #f1ede2;
+  --hero-fg: #1d3326;
+  --hero-muted: #566453;
+  --hero-soft: #43523f;
+  --hero-head: #18301f;
+  --hero-accent: #557633;
+  --hero-cta: #1f3a2b;
+  --hero-cta-ink: #f4f1e8;
+  --hero-error: #a63a22;
+  --hero-surface: #fbfaf5;
+
+  --deep-bg: #1f3a2b;
+  --deep-fg: #eef0e4;
+  --deep-muted: #aebda7;
+  --deep-soft: #cdd6c4;
+  --deep-head: #f6f4ea;
+  --deep-accent: #c3d89a;
+  --deep-cta-ink: #17301f;
+  --deep-error: #f3a17b;
+  --deep-surface: #284634;
+
+  --deep2-bg: #dfe6d3;
+  --deep2-fg: #1d3326;
+  --deep2-muted: #4b5a47;
+  --deep2-soft: #3d4b3a;
+  --deep2-head: #18301f;
+  --deep2-accent: #4a6a29;
+  --deep2-cta: #1f3a2b;
+  --deep2-cta-ink: #f4f1e8;
+  --deep2-error: #a63a22;
+  --deep2-surface: #f6f8f0;
+
+  --base-bg: #f7f4ec;
+  --base-fg: #1d3326;
+  --base-muted: #566453;
+  --base-soft: #43523f;
+  --base-head: #18301f;
+  --base-accent: #557633;
+  --base-cta: #1f3a2b;
+  --base-cta-ink: #f7f4ec;
+  --base-surface: #ffffff;
+
+  --raised-bg: #fdfcf7;
+  --raised-surface: #f1efe5;
+
+  --accent-bg: #b9cc95;
+  --accent-fg: #17301f;
+  --accent-muted: #304527;
+  --accent-cta-ink: #eef3e2;
+  --accent-surface: #f4f7ec;
+
+  --footer-bg: #17301f;
+  --footer-fg: #eef0e4;
+  --footer-muted: #a2b19b;
+  --footer-soft: #cdd6c4;
+  --footer-accent: #c3d89a;
+  --footer-cta-ink: #17301f;
+  --footer-error: #f3a17b;
+
+  --warn: #974719;
+  --danger: #a63a22;
+  --shadow: #1c2a1e;
+  --ph-bg: #dfe6d3;
+  --ph-filter: sepia(0.1) saturate(0.88) brightness(1.04) contrast(1.02);
+  --grain: 0.03;
+
+  --h-font: var(--f-soft);
+  --h-weight: 380;
+  --h-stretch: 100%;
+  --h-style: normal;
+  --h-case: none;
+  --h-track: -0.028em;
+  --h-scale: 0.9;
+  --h-lh: 1.1;
+  --em-font: var(--f-soft);
+  --em-style: italic;
+  --em-weight: 360;
+  --em-mix: 100%;
+  --d-font: var(--f-soft);
+  --d-weight: 420;
+  --d-stretch: 100%;
+  --d-style: normal;
+  --d-case: none;
+  --d-track: -0.03em;
+  --k-font: var(--f-sans);
+  --k-weight: 600;
+  --k-stretch: 100%;
+  --k-case: none;
+  --k-track: 0em;
+  --l-font: var(--f-sans);
+  --l-weight: 600;
+  --l-stretch: 100%;
+  --l-size: 11px;
+  --l-track: 0.12em;
+  --n-font: var(--f-soft);
+  --n-weight: 340;
+  --n-stretch: 100%;
+  --n-track: -0.02em;
+  --btn-font: var(--f-sans);
+  --btn-weight: 600;
+  --btn-stretch: 100%;
+  --btn-case: none;
+  --btn-track: 0.01em;
+  --btn-h: 52px;
+  --r-btn: 999px;
+  --r-card: 24px;
+  --r-img: 28px;
+  --r-chip: 999px;
+}
+
+/* 04 · PULSE — athletic performance. Cobalt field, signal orange, white.
+   Saturated, loud and graphic: condensed heavy caps, hard blocks, vivid
+   colour photography, poster compositions. */
+[data-theme='pulse'] {
+  --sw-a: #1f3fe0;
+  --sw-b: #ff5b1f;
+  --sw-c: #f2f3f8;
+
+  --hero-bg: #1f3fe0;
+  --hero-fg: #ffffff;
+  --hero-muted: #c3cbff;
+  --hero-soft: #dfe3ff;
+  --hero-head: #ffffff;
+  --hero-accent: #ffc49e;
+  --hero-cta: #ff5b1f;
+  --hero-cta-ink: #0b0f2b;
+  --hero-error: #ffd0b8;
+  --hero-surface: #ffffff;
+  --hero-line: rgb(255 255 255 / 0.22);
+
+  --deep-bg: #0f1b5e;
+  --deep-fg: #ffffff;
+  --deep-muted: #a5afe8;
+  --deep-soft: #ced4f7;
+  --deep-accent: #ff8a4c;
+  --deep-cta: #ff5b1f;
+  --deep-cta-ink: #0b0f2b;
+  --deep-error: #ffb08a;
+  --deep-surface: #17267a;
+
+  --deep2-bg: #1f3fe0;
+  --deep2-fg: #ffffff;
+  --deep2-muted: #c3cbff;
+  --deep2-soft: #dfe3ff;
+  --deep2-accent: #ffc49e;
+  --deep2-cta: #ff5b1f;
+  --deep2-cta-ink: #0b0f2b;
+  --deep2-error: #ffd0b8;
+  --deep2-surface: #1733c4;
+
+  --base-bg: #f2f3f8;
+  --base-fg: #0b0f2b;
+  --base-muted: #4a5068;
+  --base-soft: #383e57;
+  --base-accent: #1f3fe0;
+  --base-cta: #ff5b1f;
+  --base-cta-ink: #0b0f2b;
+  --base-surface: #ffffff;
+
+  --raised-bg: #ffffff;
+  --raised-surface: #eef0fa;
+
+  --accent-bg: #ff5b1f;
+  --accent-fg: #0b0f2b;
+  --accent-muted: #3a1406;
+  --accent-cta-ink: #ffffff;
+  --accent-image: repeating-linear-gradient(-45deg, rgb(11 15 43 / 0.06) 0 2px, transparent 2px 16px);
+
+  --footer-bg: #0b0f2b;
+  --footer-fg: #f2f3f8;
+  --footer-muted: #8f97bb;
+  --footer-soft: #c4c9e2;
+  --footer-accent: #ff7a3d;
+  --footer-cta: #ff5b1f;
+  --footer-cta-ink: #0b0f2b;
+  --footer-error: #ffb08a;
+
+  --warn: #c13d00;
+  --danger: #c0262d;
+  --shadow: #050824;
+  --ph-bg: #17267a;
+  --ph-filter: saturate(1.2) contrast(1.08);
+  --grain: 0.025;
+
+  --h-font: var(--f-sans);
+  --h-weight: 800;
+  --h-stretch: 62%;
+  --h-style: normal;
+  --h-case: uppercase;
+  --h-track: -0.005em;
+  --h-scale: 1.16;
+  --h-lh: 0.98;
+  --em-font: var(--f-sans);
+  --em-style: normal;
+  --em-weight: 800;
+  --em-stretch: 62%;
+  --em-mix: 100%;
+  --em-track: -0.005em;
+  --d-font: var(--f-sans);
+  --d-weight: 850;
+  --d-stretch: 62%;
+  --d-style: normal;
+  --d-case: uppercase;
+  --d-track: 0em;
+  --k-font: var(--f-sans);
+  --k-weight: 800;
+  --k-stretch: 75%;
+  --k-case: uppercase;
+  --k-track: 0.01em;
+  --l-font: var(--f-sans);
+  --l-weight: 700;
+  --l-stretch: 85%;
+  --l-size: 12px;
+  --l-track: 0.06em;
+  --n-font: var(--f-sans);
+  --n-weight: 800;
+  --n-stretch: 62%;
+  --n-track: -0.01em;
+  --btn-font: var(--f-sans);
+  --btn-weight: 800;
+  --btn-stretch: 80%;
+  --btn-case: uppercase;
+  --btn-track: 0.05em;
+  --btn-h: 56px;
+  --r-btn: 0px;
+  --r-card: 0px;
+  --r-img: 0px;
+  --r-chip: 0px;
+}
+
+/* 05 · ORBIT — futurist performance lab. Deep-space black, electric cyan,
+   ultraviolet. Fully dark, glowing hairlines, blueprint grids, glass panels,
+   expanded light caps, cyan duotone photography. */
+[data-theme='orbit'] {
+  --sw-a: #05070d;
+  --sw-b: #43e6ff;
+  --sw-c: #8b6dff;
+  --glow-a: #43e6ff;
+  --glow-b: #8b6dff;
+
+  --hero-bg: #05070d;
+  --hero-fg: #e3e9f5;
+  --hero-muted: #8792ad;
+  --hero-soft: #aeb8ce;
+  --hero-head: #ffffff;
+  --hero-accent: #43e6ff;
+  --hero-cta-ink: #021219;
+  --hero-error: #ff9a9a;
+  --hero-surface: rgb(20 28 48 / 0.62);
+  --hero-line: rgb(67 230 255 / 0.18);
+  --hero-image:
+    radial-gradient(55% 60% at 88% 8%, rgb(139 109 255 / 0.22), transparent 70%),
+    radial-gradient(40% 45% at 5% 95%, rgb(67 230 255 / 0.12), transparent 70%),
+    linear-gradient(rgb(67 230 255 / 0.05) 1px, transparent 1px) 0 0 / 64px 64px,
+    linear-gradient(90deg, rgb(67 230 255 / 0.05) 1px, transparent 1px) 0 0 / 64px 64px;
+
+  --deep-bg: #080b14;
+  --deep-fg: #e3e9f5;
+  --deep-muted: #8792ad;
+  --deep-soft: #aeb8ce;
+  --deep-head: #ffffff;
+  --deep-accent: #43e6ff;
+  --deep-cta-ink: #021219;
+  --deep-error: #ff9a9a;
+  --deep-surface: rgb(22 30 52 / 0.7);
+  --deep-line: rgb(67 230 255 / 0.15);
+  --deep-image:
+    radial-gradient(50% 40% at 100% 0%, rgb(67 230 255 / 0.08), transparent 70%),
+    linear-gradient(rgb(67 230 255 / 0.035) 1px, transparent 1px) 0 0 / 64px 64px,
+    linear-gradient(90deg, rgb(67 230 255 / 0.035) 1px, transparent 1px) 0 0 / 64px 64px;
+
+  --deep2-bg: #0b0f1c;
+  --deep2-fg: #e3e9f5;
+  --deep2-muted: #8a95b0;
+  --deep2-soft: #b1bbd0;
+  --deep2-head: #ffffff;
+  --deep2-accent: #43e6ff;
+  --deep2-cta-ink: #021219;
+  --deep2-error: #ff9a9a;
+  --deep2-surface: rgb(26 34 60 / 0.72);
+  --deep2-line: rgb(139 109 255 / 0.24);
+  --deep2-image: radial-gradient(60% 50% at 50% 0%, rgb(139 109 255 / 0.16), transparent 70%);
+
+  --base-bg: #070a12;
+  --base-fg: #dbe2f0;
+  --base-muted: #848fa9;
+  --base-soft: #a9b3c9;
+  --base-head: #f4f7ff;
+  --base-accent: #43e6ff;
+  --base-cta: #43e6ff;
+  --base-cta-ink: #021219;
+  --base-error: #ff9a9a;
+  --base-surface: #0e1322;
+  --base-line: rgb(170 190 230 / 0.13);
+
+  --raised-bg: #0c1120;
+  --raised-surface: #131a2d;
+  --raised-line: rgb(170 190 230 / 0.14);
+
+  --accent-bg: #43e6ff;
+  --accent-fg: #021219;
+  --accent-muted: #0d3d49;
+  --accent-cta-ink: #43e6ff;
+  --accent-image: linear-gradient(115deg, rgb(139 109 255 / 0.55), transparent 55%);
+
+  --footer-bg: #030409;
+  --footer-fg: #dbe2f0;
+  --footer-muted: #7f8aa5;
+  --footer-soft: #a9b3c9;
+  --footer-accent: #43e6ff;
+  --footer-cta-ink: #021219;
+  --footer-error: #ff9a9a;
+  --footer-line: rgb(67 230 255 / 0.14);
+
+  --warn: #ffb35c;
+  --danger: #ff8a8a;
+  --shadow: #000000;
+  --ph-bg: #0e1322;
+  --ph-filter: grayscale(1) sepia(1) hue-rotate(158deg) saturate(2.3) brightness(0.8) contrast(1.16);
+  --grain: 0.04;
+
+  --h-font: var(--f-sans);
+  --h-weight: 260;
+  --h-stretch: 125%;
+  --h-style: normal;
+  --h-case: uppercase;
+  --h-track: 0.01em;
+  --h-scale: 0.7;
+  --h-lh: 1.1;
+  --em-font: var(--f-sans);
+  --em-style: normal;
+  --em-weight: 260;
+  --em-stretch: 125%;
+  --em-mix: 100%;
+  --em-track: 0.01em;
+  --d-font: var(--f-sans);
+  --d-weight: 220;
+  --d-stretch: 125%;
+  --d-style: normal;
+  --d-case: uppercase;
+  --d-track: 0.05em;
+  --k-font: var(--f-sans);
+  --k-weight: 500;
+  --k-stretch: 112%;
+  --k-case: uppercase;
+  --k-track: 0.08em;
+  --l-font: var(--f-mono);
+  --l-weight: 400;
+  --l-size: 11px;
+  --l-track: 0.16em;
+  --n-font: var(--f-sans);
+  --n-weight: 200;
+  --n-stretch: 125%;
+  --n-track: -0.01em;
+  --btn-font: var(--f-sans);
+  --btn-weight: 500;
+  --btn-stretch: 115%;
+  --btn-case: uppercase;
+  --btn-track: 0.14em;
+  --btn-h: 52px;
+  --r-btn: 8px;
+  --r-card: 14px;
+  --r-img: 10px;
+  --r-chip: 8px;
+}
+
+/* ---------- theme change ---------- */
+
+/* Radial reveal from the chosen swatch (View Transitions). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) {
+  animation: theme-reveal 0.9s var(--ease-io) both;
+}
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--vt-x, 100%) var(--vt-y, 0%));
+  }
+  to {
+    clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 100%) var(--vt-y, 0%));
+  }
+}
+
+/* Fallback when View Transitions are unavailable: a short colour cross-fade. */
+html.is-retheming *,
+html.is-retheming *::before,
+html.is-retheming *::after {
+  transition:
+    color 0.5s ease,
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    fill 0.5s ease,
+    stroke 0.5s ease,
+    box-shadow 0.5s ease,
+    filter 0.5s ease !important;
+}
