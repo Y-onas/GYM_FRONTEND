@@ -26,7 +26,7 @@ export function PageHero({
 }) {
   const ref = useScrollProgress<HTMLElement>('--p', 'exit');
   return (
-    <header ref={ref} className={`phero theme-ink ${image ? 'phero--img' : ''}`}>
+    <header ref={ref} className={`phero tone-dark ${image ? 'phero--img' : ''}`}>
       {image && (
         <div className="phero__media">
           <Img name={image} alt={imageAlt} priority sizes="100vw" />
@@ -62,7 +62,7 @@ export function PageHero({
 }
 
 /** Closing call-to-action band shared by inner pages. */
-export function CtaBand({ title, children, theme = 'theme-sulfur' }: { title: string; children: ReactNode; theme?: string }) {
+export function CtaBand({ title, children, theme = 'tone-signal' }: { title: string; children: ReactNode; theme?: string }) {
   return (
     <section className={`ctaband ${theme}`}>
       <div className="wrap ctaband__in">
