@@ -4,7 +4,7 @@ export const THEMES = [
   { id: 'atelier', name: 'Atelier', concept: 'Refined luxury · espresso, cream, bronze' },
   { id: 'grove', name: 'Grove', concept: 'Natural strength · oat, sage, forest' },
   { id: 'pulse', name: 'Pulse', concept: 'Athletic energy · cobalt, signal orange' },
-  { id: 'orbit', name: 'Orbit', concept: 'Future lab · black, cyan, ultraviolet' },
+  { id: 'velvet', name: 'Velvet', concept: 'Members’ club · oxblood, blush, cream' },
 ] as const;
 
 export type ThemeId = (typeof THEMES)[number]['id'];
