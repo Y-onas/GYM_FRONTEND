@@ -12,7 +12,7 @@
   padding-bottom: clamp(64px, 8vw, 120px);
 }
 .footer__pitch em {
-  color: var(--sulfur);
+  color: var(--signal);
 }
 .footer__cta {
   display: grid;
@@ -58,13 +58,13 @@
   border-bottom: 1px solid var(--line);
 }
 .footer__hours dt {
-  color: var(--stone-l);
+  color: var(--mute-l);
 }
 .footer__hours dd {
   font-variant-numeric: tabular-nums;
 }
 .footer__ledger {
-  color: var(--stone-l);
+  color: var(--mute-l);
   max-width: 34ch;
 }
 .footer__form .field {
@@ -80,7 +80,7 @@
   transition: color 0.3s;
 }
 .footer__submit:hover {
-  color: var(--sulfur);
+  color: var(--signal);
 }
 .footer__arrow {
   width: 20px;
@@ -100,7 +100,7 @@
 .footer__tick {
   width: 10px;
   height: 10px;
-  background: var(--sulfur);
+  background: var(--signal);
 }
 .footer__contact {
   display: flex;
@@ -110,13 +110,13 @@
 }
 .footer__word {
   padding-inline: calc(var(--pad) * 0.5);
-  color: var(--paper);
+  color: var(--light);
   line-height: 0.74;
   margin-bottom: -0.02em;
   user-select: none;
 }
 .footer__word .fit__in {
-  background: linear-gradient(180deg, var(--paper) 30%, rgb(236 231 221 / 0.08));
+  background: linear-gradient(180deg, var(--light) 30%, color-mix(in srgb, var(--light) 8%, transparent));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -127,7 +127,7 @@
   justify-content: space-between;
   gap: 12px 24px;
   padding-block: 24px 32px;
-  color: var(--stone);
+  color: var(--mute);
   border-top: 1px solid var(--line);
 }
 .footer__legal button {

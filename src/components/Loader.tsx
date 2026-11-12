@@ -66,7 +66,7 @@ export function Loader({ onDone }: { onDone: () => void }) {
         </div>
         <div className="loader__meta t-label" aria-hidden="true">
           <span>Cooling</span>
-          <span className="loader__temp" style={{ color: `color-mix(in oklab, var(--sulfur) ${Math.round(glow * 100)}%, var(--paper))` }}>
+          <span className="loader__temp" style={{ color: `color-mix(in oklab, var(--signal) ${Math.round(glow * 100)}%, var(--light))` }}>
             {temp.toLocaleString('en-GB')}°C
           </span>
         </div>

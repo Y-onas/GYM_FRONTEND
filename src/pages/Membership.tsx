@@ -26,7 +26,7 @@ export default function Membership() {
         ]}
       />
 
-      <section className="plans theme-ink-2 section" aria-labelledby="plans-title">
+      <section className="plans tone-dark-2 section" aria-labelledby="plans-title">
         <div className="wrap">
           <div className="plans__head">
             <SectionHead idx="A" label="Plans" />
@@ -66,7 +66,7 @@ export default function Membership() {
                         <li key={h}>{h}</li>
                       ))}
                     </ul>
-                    <ButtonLink to={`/join?plan=${p.id}&billing=${billing}`} variant={p.featured ? 'sulfur' : 'line'} className="btn--block">
+                    <ButtonLink to={`/join?plan=${p.id}&billing=${billing}`} variant={p.featured ? 'signal' : 'line'} className="btn--block">
                       Apply for {p.name}
                     </ButtonLink>
                   </div>
@@ -105,7 +105,7 @@ function Compare() {
       v
     );
   return (
-    <section className="cmp theme-paper section" aria-labelledby="cmp-title">
+    <section className="cmp tone-light section" aria-labelledby="cmp-title">
       <div className="wrap">
         <div className="cmp__head">
           <SectionHead idx="B" label="Compare" />
@@ -163,7 +163,7 @@ function Compare() {
 
 function Addons() {
   return (
-    <section className="addons theme-bone section--tight" aria-labelledby="addons-title">
+    <section className="addons tone-light-3 section--tight" aria-labelledby="addons-title">
       <div className="wrap addons__grid">
         <div>
           <SectionHead idx="C" label="Add-ons" />
@@ -189,7 +189,7 @@ function Addons() {
 function Faq() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="faq theme-paper section" aria-labelledby="faq-title">
+    <section className="faq tone-light section" aria-labelledby="faq-title">
       <div className="wrap faq__grid">
         <div className="faq__side">
           <SectionHead idx="D" label="Questions" />

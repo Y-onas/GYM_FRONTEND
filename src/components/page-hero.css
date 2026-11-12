@@ -25,8 +25,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgb(18 17 15 / 0.7) 0%, rgb(18 17 15 / 0.1) 40%, rgb(18 17 15 / 0.9) 100%),
-    linear-gradient(90deg, rgb(18 17 15 / 0.5), transparent 70%);
+    linear-gradient(180deg, color-mix(in srgb, var(--dark) 70%, transparent) 0%, color-mix(in srgb, var(--dark) 10%, transparent) 40%, color-mix(in srgb, var(--dark) 90%, transparent) 100%),
+    linear-gradient(90deg, color-mix(in srgb, var(--dark) 50%, transparent), transparent 70%);
 }
 .phero__in {
   position: relative;
@@ -47,10 +47,10 @@
   gap: 16px;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--line);
-  color: var(--stone-l);
+  color: var(--mute-l);
 }
 .phero__idx {
-  color: var(--sulfur);
+  color: var(--signal);
 }
 .phero__title {
   align-self: end;
@@ -58,7 +58,7 @@
   padding-top: clamp(40px, 8vw, 120px);
 }
 .phero__title em {
-  color: var(--sulfur);
+  color: var(--signal);
 }
 .phero__foot {
   display: grid;
@@ -69,7 +69,7 @@
 }
 .phero__lede {
   grid-column: 1 / span 6;
-  color: var(--stone-l);
+  color: var(--mute-l);
 }
 .phero__meta {
   grid-column: 8 / -1;
