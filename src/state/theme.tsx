@@ -37,7 +37,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   // Warm the other identities' hero photographs so a switch never flashes an empty frame.
   useEffect(() => {
     const warm = () =>
-      ['hero-deadlift-1400', 'hero-atelier-800', 'hero-grove-1400', 'hero-pulse-1400', 'cardio-floor-1800'].forEach((n) => {
+      ['hero-deadlift-1400', 'hero-atelier-800', 'hero-grove-1400', 'hero-pulse-1400', 'hero-velvet-1400'].forEach((n) => {
         const img = new Image();
         img.decoding = 'async';
         img.src = `/img/${n}.webp`;

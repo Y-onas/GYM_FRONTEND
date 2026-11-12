@@ -41,7 +41,7 @@ const HERO_ART: Record<ThemeId, { image: ImageName; alt: string; focal: string; 
   atelier: { image: 'hero-atelier', alt: 'A member curls an EZ bar in the warm light of the Hall', focal: '46% 40%', sizes: '(max-width: 900px) 100vw, 42vw' },
   grove: { image: 'hero-grove', alt: 'A member trains on a mat beside tall windows and greenery', focal: '64% 62%', sizes: '(max-width: 900px) 100vw, 50vw' },
   pulse: { image: 'hero-pulse', alt: 'An athlete flexes his back under a single spotlight', focal: '52% 30%', sizes: '(max-width: 900px) 100vw, 60vw' },
-  orbit: { image: 'cardio-floor', alt: 'The conditioning deck lit by lines of overhead light', focal: '50% 50%', sizes: '100vw' },
+  velvet: { image: 'hero-velvet', alt: 'A lifter braces under a loaded bar, seen from behind', focal: '50% 30%', sizes: '(max-width: 900px) 100vw, 46vw' },
 };
 
 function Hero() {
