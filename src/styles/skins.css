@@ -750,174 +750,6 @@
   color: var(--accent);
 }
 
-/* ==========================================================================
-   05 · ORBIT — dark lab: duotone, rings, glass HUD, glowing hairlines
-   ========================================================================== */
-[data-theme='orbit'] .hero__media {
-  opacity: 0.6;
-}
-[data-theme='orbit'] .hero__shade {
-  background:
-    radial-gradient(ellipse 70% 80% at 25% 60%, color-mix(in srgb, var(--bg) 70%, transparent), transparent 70%),
-    linear-gradient(0deg, var(--bg) 0%, transparent 45%),
-    linear-gradient(180deg, color-mix(in srgb, var(--bg) 80%, transparent) 0%, transparent 30%);
-}
-[data-theme='orbit'] .hero__deco {
-  display: block;
-  z-index: 1;
-}
-[data-theme='orbit'] .hero__shape--a,
-[data-theme='orbit'] .hero__shape--b {
-  right: -6vw;
-  top: 50%;
-  width: min(52vw, 820px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  translate: 0 -50%;
-}
-[data-theme='orbit'] .hero__shape--a {
-  border: 1px solid color-mix(in srgb, var(--glow-a) 40%, transparent);
-  box-shadow:
-    0 0 80px -10px color-mix(in srgb, var(--glow-a) 30%, transparent),
-    inset 0 0 80px -10px color-mix(in srgb, var(--glow-b) 30%, transparent);
-}
-[data-theme='orbit'] .hero__shape--b {
-  width: min(40vw, 640px);
-  right: 0;
-  border: 1px dashed color-mix(in srgb, var(--glow-b) 55%, transparent);
-  animation: orbit-spin 80s linear infinite;
-}
-[data-theme='orbit'] .hero__shape--b::after {
-  content: '';
-  position: absolute;
-  top: 12%;
-  left: 12%;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--glow-a);
-  box-shadow: 0 0 18px 4px color-mix(in srgb, var(--glow-a) 70%, transparent);
-}
-@keyframes orbit-spin {
-  to {
-    rotate: 360deg;
-  }
-}
-[data-theme='orbit'] .hero__grid {
-  z-index: 2;
-}
-[data-theme='orbit'] .hero__title em {
-  text-shadow: 0 0 40px color-mix(in srgb, var(--glow-a) 60%, transparent);
-}
-[data-theme='orbit'] .hero__cards {
-  display: block;
-  grid-column: 9 / -1;
-  grid-row: 2;
-  align-self: center;
-}
-[data-theme='orbit'] .hero__card--feature {
-  display: none;
-}
-[data-theme='orbit'] .hero__card--stats {
-  display: grid;
-  grid-template-columns: 1fr;
-  border: 1px solid var(--line);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
-[data-theme='orbit'] .hero__card--stats > div {
-  grid-template-columns: 1fr auto;
-  align-items: baseline;
-}
-[data-theme='orbit'] .hero__card--stats > div + div {
-  border-left: 0;
-  border-top: 1px solid var(--line);
-}
-[data-theme='orbit'] .hero__card--stats dd {
-  color: var(--accent);
-  text-shadow: 0 0 24px color-mix(in srgb, var(--glow-a) 50%, transparent);
-}
-[data-theme='orbit'] .hero__title {
-  grid-column: 1 / span 8;
-}
-[data-theme='orbit'] .hero__word .fit__in,
-[data-theme='orbit'] .footer__word .fit__in {
-  background: none;
-  color: transparent;
-  -webkit-text-stroke: 1px color-mix(in srgb, var(--glow-a) 45%, transparent);
-}
-/* glass + glow surfaces */
-[data-theme='orbit'] .plan__in,
-[data-theme='orbit'] .calc,
-[data-theme='orbit'] .tour__end,
-[data-theme='orbit'] .mteaser__col {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-[data-theme='orbit'] .mteaser__cols {
-  gap: 14px;
-  border: 0;
-}
-[data-theme='orbit'] .mteaser__col,
-[data-theme='orbit'] .mteaser__col:first-child,
-[data-theme='orbit'] .mteaser__col:last-child {
-  padding: 28px 24px;
-  border-radius: var(--r-card);
-}
-[data-theme='orbit'] .plan.is-featured .plan__in,
-[data-theme='orbit'] .mteaser__col.is-featured {
-  border: 1px solid transparent;
-  background:
-    linear-gradient(var(--deep2-bg), var(--deep2-bg)) padding-box,
-    linear-gradient(135deg, var(--glow-a), var(--glow-b)) border-box;
-  box-shadow:
-    0 0 60px -20px color-mix(in srgb, var(--glow-a) 55%, transparent),
-    0 0 90px -30px color-mix(in srgb, var(--glow-b) 50%, transparent);
-}
-[data-theme='orbit'] .mteaser__col.is-featured::before {
-  display: none;
-}
-[data-theme='orbit'] .btn--signal {
-  box-shadow: 0 0 30px -6px color-mix(in srgb, var(--cta) 75%, transparent);
-}
-[data-theme='orbit'] .btn:hover {
-  box-shadow: 0 0 34px -6px color-mix(in srgb, var(--cta) 80%, transparent);
-}
-[data-theme='orbit'] .eyebrow__idx {
-  color: var(--accent);
-}
-[data-theme='orbit'] .eyebrow__idx::before {
-  content: '[ ';
-}
-[data-theme='orbit'] .eyebrow__idx::after {
-  content: ' ]';
-}
-[data-theme='orbit'] .eyebrow::before {
-  width: 48px;
-  background: linear-gradient(90deg, var(--glow-a), var(--glow-b));
-}
-[data-theme='orbit'] .t-h2 em,
-[data-theme='orbit'] .t-h1 em {
-  text-shadow: 0 0 30px color-mix(in srgb, var(--glow-a) 45%, transparent);
-}
-[data-theme='orbit'] .img-mask::after,
-[data-theme='orbit'] .tour__img::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--glow-a) 22%, transparent);
-  pointer-events: none;
-}
-[data-theme='orbit'] .tour__img {
-  position: relative;
-}
-[data-theme='orbit'] .nav.is-solid::before {
-  box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--glow-a) 30%, transparent);
-}
-
 /* ---------- responsive recomposition ---------- */
 @media (max-width: 1100px) {
   [data-theme='pulse'] .hero__cards,
@@ -928,13 +760,7 @@
     width: auto;
     margin-top: 32px;
   }
-  [data-theme='orbit'] .hero__cards {
-    grid-column: 1 / span 7;
-    grid-row: 4;
-    margin-top: 32px;
-  }
-  [data-theme='pulse'] .hero__title,
-  [data-theme='orbit'] .hero__title {
+  [data-theme='pulse'] .hero__title {
     grid-column: 1 / -1;
   }
 }
@@ -1000,17 +826,6 @@
     right: -12vw;
     width: 78vw;
   }
-  [data-theme='orbit'] .hero__shape--a,
-  [data-theme='orbit'] .hero__shape--b {
-    right: -30vw;
-    width: 110vw;
-  }
-  [data-theme='orbit'] .hero__shape--b {
-    width: 80vw;
-  }
-  [data-theme='orbit'] .hero__cards {
-    grid-column: 1 / -1;
-  }
   [data-theme='atelier'] .phero--img .phero__media,
   [data-theme='grove'] .phero--img .phero__media {
     inset: calc(var(--nav-h) + 72px) var(--pad) auto;
@@ -1069,6 +884,196 @@
 [data-theme='pulse'] .manifesto__text {
   --h-scale: 0.8;
 }
-[data-theme='orbit'] .manifesto__text {
-  --h-scale: 0.62;
+/* ==========================================================================
+   05 · VELVET — members' club: tall rose half-frame, lowercase wordmark
+   crossing the seam, vertical club line, blush featured plan
+   ========================================================================== */
+[data-theme='velvet'] .hero {
+  min-height: max(760px, 100svh);
+}
+[data-theme='velvet'] .hero__media {
+  inset: 0 0 0 54%;
+  transform: none;
+  will-change: auto;
+}
+[data-theme='velvet'] .hero__shade {
+  background: linear-gradient(0deg, color-mix(in srgb, var(--bg) 55%, transparent) 0%, transparent 34%);
+  left: 54%;
+}
+[data-theme='velvet'] .hero__deco {
+  display: block;
+  z-index: 2;
+}
+/* vertical club line on the photo seam */
+[data-theme='velvet'] .hero__shape--a {
+  left: 54%;
+  top: calc(var(--nav-h) + 24px);
+  bottom: 30%;
+  width: 1px;
+  background: var(--line-strong);
+}
+[data-theme='velvet'] .hero__shape--b {
+  left: calc(54% + 18px);
+  top: calc(var(--nav-h) + 24px);
+  writing-mode: vertical-rl;
+  font-family: var(--f-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--hero-fg);
+  text-shadow: 0 1px 12px color-mix(in srgb, var(--shadow) 60%, transparent);
+}
+[data-theme='velvet'] .hero__shape--b::before {
+  content: 'Private members’ club — Kings Cross — No. 1,200';
+}
+[data-theme='velvet'] .hero__top {
+  grid-column: 1 / span 6;
+}
+[data-theme='velvet'] .hero__coords {
+  display: none;
+}
+[data-theme='velvet'] .hero__title {
+  grid-column: 1 / span 6;
+  padding-block: 56px 32px;
+}
+[data-theme='velvet'] .hero__title em {
+  font-size: 1.12em;
+}
+[data-theme='velvet'] .hero__aside {
+  grid-column: 1 / span 5;
+}
+[data-theme='velvet'] .hero__scroll {
+  display: none;
+}
+[data-theme='velvet'] .hero__word {
+  z-index: 3;
+  color: var(--accent);
+  margin-bottom: -0.06em;
+}
+[data-theme='velvet'] .hero__grid {
+  padding-bottom: 24px;
+}
+[data-theme='velvet'] .phero--img .phero__media {
+  inset: 0 0 0 54%;
+  transform: none;
+}
+[data-theme='velvet'] .phero--img::after {
+  background: linear-gradient(90deg, var(--bg) 54%, transparent 54%);
+}
+[data-theme='velvet'] .phero--img .phero__in {
+  padding-right: calc(46% + var(--pad));
+}
+[data-theme='velvet'] .phero--img .phero__lede,
+[data-theme='velvet'] .phero--img .phero__meta {
+  grid-column: 1 / -1;
+}
+
+/* "No. 01" eyebrows */
+[data-theme='velvet'] .eyebrow__idx::before {
+  content: 'No. ';
+}
+[data-theme='velvet'] .eyebrow::before {
+  width: 20px;
+}
+[data-theme='velvet'] .pillar__name {
+  font-size: clamp(3.4rem, min(15vw, 28vh), 17rem);
+}
+
+/* plans: cream cards, featured is blush with an oxblood button */
+[data-theme='velvet'] .plan__in,
+[data-theme='velvet'] .mteaser__col {
+  --bg: var(--raised-bg);
+  --fg: var(--base-fg);
+  --muted: var(--base-muted);
+  --soft: var(--base-soft);
+  --heading: var(--base-head);
+  --accent: var(--base-accent);
+  --cta: var(--base-cta);
+  --cta-ink: var(--base-cta-ink);
+  --line: var(--base-line);
+  --line-strong: color-mix(in srgb, var(--base-fg) 40%, transparent);
+  --focus: var(--base-fg);
+  background: var(--bg);
+  color: var(--fg);
+  border: 0;
+}
+[data-theme='velvet'] .mteaser__cols {
+  gap: 14px;
+  border: 0;
+}
+[data-theme='velvet'] .mteaser__col,
+[data-theme='velvet'] .mteaser__col:first-child,
+[data-theme='velvet'] .mteaser__col:last-child {
+  padding: 30px 26px;
+  border-radius: var(--r-card);
+}
+[data-theme='velvet'] .plan.is-featured .plan__in,
+[data-theme='velvet'] .mteaser__col.is-featured {
+  --bg: var(--accent-bg);
+  --fg: var(--accent-fg);
+  --muted: var(--accent-muted);
+  --soft: var(--accent-muted);
+  --heading: var(--accent-fg);
+  --accent: var(--accent-accent);
+  --cta: var(--accent-cta);
+  --cta-ink: var(--accent-cta-ink);
+  --line: color-mix(in srgb, var(--accent-fg) 18%, transparent);
+  background: var(--bg);
+  box-shadow: 0 40px 70px -40px color-mix(in srgb, var(--shadow) 70%, transparent);
+}
+[data-theme='velvet'] .mteaser__col.is-featured::before,
+[data-theme='velvet'] .plan.is-featured .plan__in::before {
+  display: none;
+}
+[data-theme='velvet'] .plan__flag,
+[data-theme='velvet'] .mteaser__flag {
+  padding: 4px 8px;
+  border-radius: 3px;
+  background: var(--cta);
+  color: var(--cta-ink);
+}
+[data-theme='velvet'] .footer__word .fit__in {
+  background: none;
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  [data-theme='velvet'] .hero__media {
+    inset: 0 0 auto 0;
+    height: min(58vh, 520px);
+  }
+  [data-theme='velvet'] .hero__shade {
+    left: 0;
+    top: 0;
+    height: min(58vh, 520px);
+    bottom: auto;
+    background: linear-gradient(0deg, var(--bg) 0%, transparent 45%);
+  }
+  [data-theme='velvet'] .hero__shape--a,
+  [data-theme='velvet'] .hero__shape--b {
+    display: none;
+  }
+  [data-theme='velvet'] .hero__grid {
+    padding-top: calc(min(58vh, 520px) - 40px);
+  }
+  [data-theme='velvet'] .hero__top,
+  [data-theme='velvet'] .hero__title,
+  [data-theme='velvet'] .hero__aside {
+    grid-column: 1 / -1;
+  }
+  [data-theme='velvet'] .hero__title {
+    padding-block: 24px;
+  }
+  [data-theme='velvet'] .phero--img .phero__media {
+    inset: 0 0 auto 0;
+    height: 300px;
+  }
+  [data-theme='velvet'] .phero--img::after {
+    background: linear-gradient(0deg, var(--bg) calc(100% - 300px), transparent calc(100% - 120px));
+  }
+  [data-theme='velvet'] .phero--img .phero__in {
+    padding-right: var(--pad);
+    padding-top: 280px;
+  }
 }
