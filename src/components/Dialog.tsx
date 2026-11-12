@@ -33,7 +33,7 @@ export function Dialog({
   return (
     <dialog
       ref={ref}
-      className={`dialog dialog--${variant}`}
+      className={`dialog dialog--${variant} tone-base`}
       aria-label={label}
       onClose={onClose}
       onCancel={(e) => {

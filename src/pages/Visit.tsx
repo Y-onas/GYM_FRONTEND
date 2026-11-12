@@ -44,7 +44,7 @@ export default function Visit() {
         <OpenStatus withLoad className="visit__status" />
       </PageHero>
 
-      <section className="find theme-ink section--tight" aria-labelledby="find-title">
+      <section className="find tone-deep section--tight" aria-labelledby="find-title">
         <div className="wrap find__grid">
           <Reveal className="find__map">
             <MapDrawing />
@@ -234,7 +234,7 @@ function Enquiry() {
   const subjectLabel = SUBJECTS.find((s) => s.id === form.subject)!.label;
 
   return (
-    <section id="enquire" className="enq theme-paper section" aria-labelledby="enq-title">
+    <section id="enquire" className="enq tone-base section" aria-labelledby="enq-title">
       <div className="wrap enq__grid">
         <div className="enq__side">
           <SectionHead idx="A" label="Enquire" />

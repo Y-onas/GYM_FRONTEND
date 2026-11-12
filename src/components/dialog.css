@@ -1,11 +1,4 @@
 .dialog {
-  --bg: var(--paper);
-  --fg: var(--ink);
-  --muted: var(--stone-2);
-  --line: rgb(18 17 15 / 0.16);
-  --line-strong: rgb(18 17 15 / 0.42);
-  --focus: var(--ink);
-  --accent: var(--ink);
   padding: 0;
   border: 0;
   background: var(--bg);
@@ -15,7 +8,7 @@
   overflow: hidden;
 }
 .dialog::backdrop {
-  background: rgb(18 17 15 / 0.72);
+  background: color-mix(in srgb, var(--shadow) 66%, transparent);
   backdrop-filter: blur(6px);
   animation: dlg-fade 0.4s both;
 }
