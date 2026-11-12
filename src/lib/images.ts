@@ -4,6 +4,7 @@ const IMAGES = {
   'hero-atelier': { w: [800, 1400, 2000], ratio: 1335 / 2000 },
   'hero-grove': { w: [800, 1400, 2000], ratio: 1333 / 2000 },
   'hero-pulse': { w: [800, 1400, 2000], ratio: 1333 / 2000 },
+  'hero-velvet': { w: [800, 1400, 2000], ratio: 1335 / 2000 },
   'hero-floor': { w: [900, 1800], ratio: 1200 / 1800 },
   'hall-industrial': { w: [1000, 2000], ratio: 1333 / 2000 },
   'rack-window': { w: [700, 1400], ratio: 1987 / 1400 },

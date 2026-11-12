@@ -37,7 +37,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   // Warm the other identities' hero photographs so a switch never flashes an empty frame.
   useEffect(() => {
     const warm = () =>
-      ['hero-deadlift-1400', 'hero-atelier-800', 'hero-grove-1400', 'hero-pulse-1400', 'cardio-floor-1800'].forEach((n) => {
+      ['hero-deadlift-1400', 'hero-atelier-800', 'hero-grove-1400', 'hero-pulse-1400', 'hero-velvet-1400'].forEach((n) => {
         const img = new Image();
         img.decoding = 'async';
         img.src = `/img/${n}.webp`;
@@ -51,8 +51,16 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     (id: ThemeId, origin?: Origin) => {
       if (id === theme) return;
       const apply = () => {
+        // Themes change section spacing, so pin whatever sits mid-screen to the same position.
+        const probe = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2);
+        const anchor = probe?.closest('section, header, footer') ?? null;
+        const before = anchor?.getBoundingClientRect().top ?? 0;
         flushSync(() => setState(id));
         root().dataset.theme = id;
+        if (anchor) {
+          const delta = anchor.getBoundingClientRect().top - before;
+          if (Math.abs(delta) > 0.5) window.scrollBy({ top: delta, behavior: 'instant' });
+        }
         try {
           localStorage.setItem(KEY, id);
         } catch {
