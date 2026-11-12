@@ -170,7 +170,7 @@ export default function Join() {
 
   if (status === 'done') {
     return (
-      <div className="page join join--done theme-ink">
+      <div className="page join join--done tone-deep">
         <div className="wrap jdone">
           <div className="jdone__mark" aria-hidden="true">
             <Mark />
@@ -196,7 +196,7 @@ export default function Join() {
           <div className="jdone__ctas">
             <button
               type="button"
-              className="btn btn--sulfur"
+              className="btn btn--signal"
               onClick={() =>
                 downloadIcs({
                   title: 'BASALT induction',
@@ -223,7 +223,7 @@ export default function Join() {
 
   return (
     <div className="page join">
-      <aside className="jsum theme-ink" aria-label="Your membership summary">
+      <aside className="jsum tone-deep" aria-label="Your membership summary">
         <div className="jsum__img" aria-hidden="true">
           <Img name="rack-bw" alt="" sizes="40vw" priority />
         </div>
@@ -261,7 +261,7 @@ export default function Join() {
         </div>
       </aside>
 
-      <div className="jform theme-paper">
+      <div className="jform tone-base">
         <nav className="jsteps" aria-label="Application progress">
           <ol>
             {STEPS.map((s, i) => (

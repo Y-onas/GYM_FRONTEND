@@ -1,6 +1,9 @@
 /** Locally graded photography (see public/img). Widths are the files that exist on disk. */
 const IMAGES = {
   'hero-deadlift': { w: [800, 1400, 2400], ratio: 1600 / 2400 },
+  'hero-atelier': { w: [800, 1400, 2000], ratio: 1335 / 2000 },
+  'hero-grove': { w: [800, 1400, 2000], ratio: 1333 / 2000 },
+  'hero-pulse': { w: [800, 1400, 2000], ratio: 1333 / 2000 },
   'hero-floor': { w: [900, 1800], ratio: 1200 / 1800 },
   'hall-industrial': { w: [1000, 2000], ratio: 1333 / 2000 },
   'rack-window': { w: [700, 1400], ratio: 1987 / 1400 },

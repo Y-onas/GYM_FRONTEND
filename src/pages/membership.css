@@ -37,9 +37,9 @@
   transform: translateY(-6px);
 }
 .plan.is-featured .plan__in {
-  background: var(--ink);
-  border-color: var(--sulfur);
-  box-shadow: 0 40px 80px -40px rgb(0 0 0 / 0.7);
+  background: var(--surface);
+  border-color: var(--cta);
+  box-shadow: 0 40px 80px -40px color-mix(in srgb, var(--shadow) 70%, transparent);
 }
 .plan__top {
   display: flex;
@@ -47,7 +47,7 @@
   gap: 12px;
 }
 .plan__flag {
-  color: var(--sulfur);
+  color: var(--accent);
 }
 .plan__name {
   font-size: clamp(2.4rem, 3.6vw, 3.6rem);
@@ -78,7 +78,7 @@
   padding: 10px 0;
   border-bottom: 1px solid var(--line);
   font-size: 15px;
-  color: var(--stone-l);
+  color: var(--soft);
 }
 .plan__list li::before {
   content: '';
@@ -86,7 +86,7 @@
   width: 6px;
   height: 6px;
   margin-top: 9px;
-  background: var(--sulfur);
+  background: var(--cta);
 }
 @media (max-width: 1000px) {
   .plans__grid {
@@ -128,7 +128,7 @@
 .cmp__table thead th {
   position: sticky;
   top: var(--nav-h);
-  background: var(--paper);
+  background: var(--bg);
   display: table-cell;
   vertical-align: bottom;
   border-bottom: 1px solid var(--line-strong);
@@ -145,10 +145,10 @@
   padding-left: 16px;
 }
 .cmp__table .is-col {
-  background: rgb(18 17 15 / 0.045);
+  background: color-mix(in srgb, var(--fg) 4.5%, transparent);
 }
 .cmp__table thead th.is-col {
-  background: var(--paper-2);
+  background: var(--surface);
 }
 .cmp__group th {
   padding-top: 40px;
@@ -162,10 +162,10 @@
   display: inline-block;
   width: 10px;
   height: 10px;
-  background: var(--ink);
+  background: var(--fg);
 }
 .cmp__no {
-  color: var(--stone-l);
+  color: var(--soft);
 }
 .cmp__row {
   animation: inv-in 0.5s var(--ease-out) both;
@@ -197,9 +197,10 @@
   border-bottom: 1px solid var(--line);
 }
 .addon__name {
-  font-stretch: 118%;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-family: var(--k-font);
+  font-stretch: var(--k-stretch);
+  font-weight: var(--k-weight);
+  text-transform: var(--k-case);
 }
 .addon__note {
   color: var(--muted);
