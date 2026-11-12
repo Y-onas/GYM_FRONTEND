@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" data-theme="basalt">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -13,6 +13,13 @@
     <meta property="og:description" content="Pressure, heat & time. A members' training house in Kings Cross, London." />
     <meta property="og:image" content="/img/hero-deadlift-1400.webp" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      // Apply the saved brand theme before first paint to avoid a flash of the default palette.
+      try {
+        var t = localStorage.getItem("basalt.theme");
+        if (/^(basalt|atelier|grove|concrete|volt)$/.test(t)) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
