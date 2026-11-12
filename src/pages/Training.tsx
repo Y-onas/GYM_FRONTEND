@@ -43,7 +43,7 @@ function Programs() {
   const [open, setOpen] = useState<string>(PROGRAMS[1].id);
   const current = PROGRAMS.find((p) => p.id === open) ?? PROGRAMS[0];
   return (
-    <section className="progs theme-paper section" aria-labelledby="progs-title">
+    <section className="progs tone-base section" aria-labelledby="progs-title">
       <div className="wrap">
         <div className="progs__head">
           <SectionHead idx="A" label="Programmes" />
@@ -116,7 +116,7 @@ function PersonalTraining() {
   const saved = t.rate * pack.sessions - total;
 
   return (
-    <section className="pt theme-ink section" aria-labelledby="pt-title">
+    <section className="pt tone-deep section" aria-labelledby="pt-title">
       <div className="wrap pt__grid">
         <div className="pt__intro">
           <SectionHead idx="B" label="Personal training" />
@@ -171,7 +171,7 @@ function PersonalTraining() {
               <span className="calc__saved t-label">{saved > 0 ? `You save £${saved}` : 'No commitment'}</span>
             </div>
           </div>
-          <ButtonLink to={`/visit?subject=pt&detail=${encodeURIComponent(`${pack.sessions} × ${t.name}`)}`} variant="sulfur" className="btn--block">
+          <ButtonLink to={`/visit?subject=pt&detail=${encodeURIComponent(`${pack.sessions} × ${t.name}`)}`} variant="signal" className="btn--block">
             Request this pack
           </ButtonLink>
           <p className="calc__fine t-label t-label--muted">Private members: four sessions a month are included.</p>
@@ -202,7 +202,7 @@ function CoachGrid() {
   }, [selected]);
 
   return (
-    <section id="coaches" className="cgrid theme-paper section" aria-labelledby="cgrid-title">
+    <section id="coaches" className="cgrid tone-base section" aria-labelledby="cgrid-title">
       <div className="wrap">
         <div className="progs__head">
           <SectionHead idx="C" label="Coaches" />

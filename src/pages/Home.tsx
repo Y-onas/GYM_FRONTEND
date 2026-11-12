@@ -12,6 +12,9 @@ import { PLANS, priceFor, type Billing } from '../data/plans';
 import { useClubNow, useInView, useMediaQuery, usePageMeta, useReducedMotion, useScrollProgress } from '../lib/hooks';
 import { addDays, formatDate, toMinutes } from '../lib/time';
 import { useBookings } from '../state/bookings';
+import { useTheme } from '../state/theme';
+import type { ThemeId } from '../data/themes';
+import type { ImageName } from '../lib/images';
 import './home.css';
 
 export default function Home() {
@@ -32,15 +35,31 @@ export default function Home() {
 }
 
 /* ---------------------------------------------------------------- hero */
+/** Each identity art-directs its own hero photograph and crop. */
+const HERO_ART: Record<ThemeId, { image: ImageName; alt: string; focal: string; sizes: string }> = {
+  basalt: { image: 'hero-deadlift', alt: 'A lifter braces over a loaded barbell beneath a single overhead light', focal: '50% 40%', sizes: '100vw' },
+  atelier: { image: 'hero-atelier', alt: 'A member curls an EZ bar in the warm light of the Hall', focal: '46% 40%', sizes: '(max-width: 900px) 100vw, 42vw' },
+  grove: { image: 'hero-grove', alt: 'A member trains on a mat beside tall windows and greenery', focal: '64% 62%', sizes: '(max-width: 900px) 100vw, 50vw' },
+  pulse: { image: 'hero-pulse', alt: 'An athlete flexes his back under a single spotlight', focal: '52% 30%', sizes: '(max-width: 900px) 100vw, 60vw' },
+  orbit: { image: 'cardio-floor', alt: 'The conditioning deck lit by lines of overhead light', focal: '50% 50%', sizes: '100vw' },
+};
+
 function Hero() {
   const ready = useIntro();
+  const { theme } = useTheme();
+  const art = HERO_ART[theme];
   const ref = useScrollProgress<HTMLElement>('--p', 'exit');
   return (
-    <section ref={ref} className={`hero theme-ink ${ready ? 'is-ready' : ''}`} aria-labelledby="hero-title">
+    <section ref={ref} className={`hero tone-hero ${ready ? 'is-ready' : ''}`} aria-labelledby="hero-title">
       <div className="hero__media">
-        <Img name="hero-deadlift" priority sizes="100vw" alt="A lifter braces over a loaded barbell beneath a single overhead light" focal="50% 40%" />
+        <Img name={art.image} priority sizes={art.sizes} alt={art.alt} focal={art.focal} />
       </div>
       <div className="hero__shade" aria-hidden="true" />
+      <div className="hero__deco" aria-hidden="true">
+        <span className="hero__shape hero__shape--a" />
+        <span className="hero__shape hero__shape--b" />
+        <span className="hero__dots" />
+      </div>
 
       <div className="hero__grid wrap">
         <div className="hero__top t-label">
@@ -56,12 +75,37 @@ function Hero() {
             seriously as work.
           </p>
           <div className="hero__ctas">
-            <ButtonLink to="/join" variant="sulfur">
+            <ButtonLink to="/join" variant="signal">
               Apply for membership
             </ButtonLink>
             <ButtonLink to="/house">Tour the house</ButtonLink>
           </div>
           <OpenStatus withLoad className="hero__status" />
+        </div>
+
+        <div className="hero__cards">
+          <TLink to="/training" className="hero__card hero__card--feature">
+            <span className="hero__card-img" aria-hidden="true">
+              <Img name="spotting" alt="" sizes="240px" focal="50% 35%" />
+            </span>
+            <span className="hero__card-k t-label">Coached strength</span>
+            <span className="hero__card-t">A coach at every platform</span>
+            <Arrow className="hero__card-arrow" />
+          </TLink>
+          <dl className="hero__card hero__card--stats">
+            <div>
+              <dt className="t-label">Members, capped</dt>
+              <dd className="t-num">1,200</dd>
+            </div>
+            <div>
+              <dt className="t-label">Full-time coaches</dt>
+              <dd className="t-num">14</dd>
+            </div>
+            <div>
+              <dt className="t-label">Cold plunge</dt>
+              <dd className="t-num">6°C</dd>
+            </div>
+          </dl>
         </div>
       </div>
 
@@ -89,7 +133,7 @@ function Manifesto() {
   const ref = useScrollProgress<HTMLDivElement>('--p', 'through');
   const words = MANIFESTO.split(' ');
   return (
-    <section id="manifesto" className="manifesto theme-paper section">
+    <section id="manifesto" className="manifesto tone-base section">
       <div className="wrap manifesto__grid">
         <SectionHead idx="01" label="The idea" className="manifesto__eyebrow" />
         <div ref={ref} className="manifesto__text" style={{ '--n': words.length } as CSSProperties}>
@@ -116,7 +160,7 @@ function Manifesto() {
 }
 
 /* ---------------------------------------------------------------- pillars */
-const PILLAR_THEMES: Record<Pillar, string> = { pressure: 'theme-ink-2', heat: 'theme-sulfur', time: 'theme-bone' };
+const PILLAR_THEMES: Record<Pillar, string> = { pressure: 'tone-deep2', heat: 'tone-accent', time: 'tone-raised' };
 
 function Pillars() {
   return (
@@ -210,7 +254,7 @@ function FloorsTour() {
   }, [pinned]);
 
   return (
-    <section ref={section} className={`tour theme-ink ${pinned ? 'is-pinned' : ''}`} aria-labelledby="tour-title">
+    <section ref={section} className={`tour tone-deep ${pinned ? 'is-pinned' : ''}`} aria-labelledby="tour-title">
       <div className="tour__sticky">
         <div className="tour__head wrap">
           <SectionHead idx="02" label="The house" />
@@ -297,7 +341,7 @@ function CountUp({ to, prefix = '', suffix = '' }: { to: number; prefix?: string
 
 function Numbers() {
   return (
-    <section className="numbers theme-paper section--tight" aria-label="BASALT in numbers">
+    <section className="numbers tone-base section--tight" aria-label="BASALT in numbers">
       <div className="wrap">
         <ul className="numbers__list">
           {NUMBERS.map((n, i) => (
@@ -317,7 +361,7 @@ function Numbers() {
 /* ---------------------------------------------------------------- coaches */
 function Coaches() {
   return (
-    <section className="coaches theme-ink section" aria-labelledby="coaches-title">
+    <section className="coaches tone-deep section" aria-labelledby="coaches-title">
       <div className="wrap">
         <div className="coaches__head">
           <SectionHead idx="03" label="The coaches" />
@@ -348,7 +392,7 @@ function Today() {
   const isToday = day === now.isoDate;
 
   return (
-    <section className="today theme-bone section" aria-labelledby="today-title">
+    <section className="today tone-raised section" aria-labelledby="today-title">
       <div className="wrap today__grid">
         <div className="today__head">
           <SectionHead idx="04" label="On the board" />
@@ -393,7 +437,7 @@ function Today() {
 function MembershipTeaser() {
   const [billing, setBilling] = useState<Billing>('monthly');
   return (
-    <section className="mteaser theme-ink-2 section" aria-labelledby="mteaser-title">
+    <section className="mteaser tone-deep2 section" aria-labelledby="mteaser-title">
       <div className="wrap">
         <div className="mteaser__head">
           <SectionHead idx="05" label="Membership" />
@@ -417,7 +461,7 @@ function MembershipTeaser() {
                   <li key={h}>{h}</li>
                 ))}
               </ul>
-              <ButtonLink to={`/join?plan=${p.id}&billing=${billing}`} variant={p.featured ? 'sulfur' : 'line'} className="btn--block">
+              <ButtonLink to={`/join?plan=${p.id}&billing=${billing}`} variant={p.featured ? 'signal' : 'line'} className="btn--block">
                 Apply for {p.name}
               </ButtonLink>
             </Reveal>
@@ -437,7 +481,7 @@ function MembershipTeaser() {
 /* ---------------------------------------------------------------- voice */
 function Voice() {
   return (
-    <section className="voice theme-paper section" aria-label="A member on BASALT">
+    <section className="voice tone-base section" aria-label="A member on BASALT">
       <div className="wrap voice__grid">
         <MaskImg name="back" alt="A member rests between sets in the Hall" sizes="(max-width: 900px) 100vw, 40vw" className="voice__img" />
         <figure className="voice__fig">

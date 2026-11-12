@@ -57,7 +57,7 @@ export function Loader({ onDone }: { onDone: () => void }) {
   if (gone) return null;
   const glow = Math.max(0, (temp - 21) / 1179);
   return (
-    <div className={`loader ${out ? 'is-out' : ''}`} role="status" aria-label="Loading BASALT">
+    <div className={`loader tone-hero ${out ? 'is-out' : ''}`} role="status" aria-label="Loading BASALT">
       <div className="loader__core">
         <div className="loader__cols" aria-hidden="true">
           <span style={{ '--h': '62%', '--d': '0ms' } as React.CSSProperties} />
@@ -66,7 +66,7 @@ export function Loader({ onDone }: { onDone: () => void }) {
         </div>
         <div className="loader__meta t-label" aria-hidden="true">
           <span>Cooling</span>
-          <span className="loader__temp" style={{ color: `color-mix(in oklab, var(--sulfur) ${Math.round(glow * 100)}%, var(--paper))` }}>
+          <span className="loader__temp" style={{ color: `color-mix(in oklab, var(--accent) ${Math.round(glow * 100)}%, var(--fg))` }}>
             {temp.toLocaleString('en-GB')}°C
           </span>
         </div>
