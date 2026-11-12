@@ -14,9 +14,11 @@
   gap: 10px;
   min-height: 46px;
   padding: 0 18px;
-  font-family: var(--f-mono);
+  font-family: var(--l-font);
+  font-weight: var(--l-weight);
+  font-stretch: var(--l-stretch, 100%);
   font-size: 12px;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--l-track);
   text-transform: uppercase;
   transition: color 0.5s var(--ease-out);
 }
@@ -25,8 +27,8 @@
 }
 .billing__save {
   padding: 3px 6px;
-  background: var(--sulfur);
-  color: var(--ink);
+  background: var(--cta);
+  color: var(--cta-ink);
   font-size: 10px;
   white-space: nowrap;
 }

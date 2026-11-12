@@ -5,7 +5,7 @@
   fill: currentColor;
 }
 .mark__heat {
-  fill: var(--sulfur);
+  fill: var(--cta);
 }
 .mark__c {
   transform-box: fill-box;
@@ -55,9 +55,11 @@ a:hover .mark__c--3 {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--f-mono);
+  font-family: var(--l-font);
+  font-weight: var(--l-weight);
+  font-stretch: var(--l-stretch, 100%);
   font-size: 12px;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--l-track);
   text-transform: uppercase;
 }
 .status__dot {
@@ -65,18 +67,18 @@ a:hover .mark__c--3 {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--stone);
+  background: var(--muted);
   flex: none;
 }
 .status.is-open .status__dot {
-  background: var(--sulfur);
+  background: var(--cta);
 }
 .status.is-open .status__dot::after {
   content: '';
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  border: 1px solid var(--sulfur);
+  border: 1px solid var(--cta);
   animation: status-pulse 2.4s var(--ease-out) infinite;
 }
 .status__detail {

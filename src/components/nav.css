@@ -1,14 +1,8 @@
 .nav {
-  --bg: var(--ink);
-  --fg: var(--paper);
-  --muted: var(--stone);
-  --focus: var(--sulfur);
-  --line: rgb(236 231 221 / 0.14);
-  --line-strong: rgb(236 231 221 / 0.4);
   position: fixed;
   inset: 0 0 auto;
   z-index: 7000;
-  color: var(--paper);
+  color: var(--fg);
   transition:
     transform 0.6s var(--ease-out),
     background-color 0.5s,
@@ -19,7 +13,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgb(18 17 15 / 0.82);
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
   backdrop-filter: blur(16px) saturate(1.2);
   -webkit-backdrop-filter: blur(16px) saturate(1.2);
   opacity: 0;
@@ -50,11 +44,13 @@
   gap: 12px;
 }
 .nav__word {
-  font-stretch: 125%;
-  font-weight: 800;
+  font-family: var(--d-font);
+  font-stretch: var(--d-stretch);
+  font-style: var(--d-style);
+  font-weight: var(--d-weight);
   font-size: 18px;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
+  text-transform: var(--d-case);
 }
 .nav__links {
   display: flex;
@@ -74,7 +70,7 @@
 .nav__idx {
   font-family: var(--f-mono);
   font-size: 9.5px;
-  color: var(--stone);
+  color: var(--muted);
   transform: translateY(-2px);
   transition: color 0.3s;
 }
@@ -100,7 +96,7 @@
 }
 .nav__link.is-active .nav__idx,
 .nav__link:hover .nav__idx {
-  color: var(--sulfur);
+  color: var(--accent);
 }
 .nav__right {
   display: flex;
@@ -115,9 +111,11 @@
   align-items: center;
   gap: 12px;
   height: 42px;
-  font-family: var(--f-mono);
+  font-family: var(--l-font);
+  font-weight: var(--l-weight);
+  font-stretch: var(--l-stretch, 100%);
   font-size: 12px;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--l-track);
   text-transform: uppercase;
 }
 .nav__burger {
@@ -213,7 +211,7 @@
   transition-delay: calc(0.25s + var(--i) * 60ms);
 }
 .menu__idx {
-  color: var(--stone);
+  color: var(--muted);
 }
 .menu__label {
   font-family: var(--f-serif);
@@ -230,11 +228,11 @@
   transform: translateX(10px);
 }
 .menu__link.is-active .menu__idx {
-  color: var(--sulfur);
+  color: var(--accent);
 }
 .menu__blurb {
   grid-column: 2;
-  color: var(--stone);
+  color: var(--muted);
   margin-top: 6px;
 }
 .menu__apply {
@@ -248,7 +246,7 @@
 .menu__preview {
   position: relative;
   overflow: hidden;
-  background: var(--ink-3);
+  background: var(--ph-bg);
   opacity: 0;
   transform: translateY(40px);
   transition:
@@ -288,7 +286,7 @@
   padding-top: 20px;
   border-top: 1px solid var(--line);
   font-size: 14px;
-  color: var(--stone-l);
+  color: var(--soft);
 }
 .menu__foot address {
   font-style: normal;
@@ -313,4 +311,19 @@
   .menu__blurb {
     display: none;
   }
+}
+@media (max-width: 400px) {
+  .nav__toggle-text {
+    display: none;
+  }
+  .nav__in {
+    gap: 16px;
+  }
+  .nav__right {
+    gap: 14px;
+  }
+}
+/* the header takes the hero role's colours but stays transparent over it */
+header.nav {
+  background: none;
 }
