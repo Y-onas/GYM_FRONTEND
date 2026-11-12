@@ -83,7 +83,7 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
   return (
     <TransitionCtx.Provider value={{ go, phase }}>
       {children}
-      <div className="curtain" data-phase={phase} aria-hidden="true">
+      <div className="curtain tone-deep2" data-phase={phase} aria-hidden="true">
         {Array.from({ length: COLUMNS }, (_, i) => (
           <span key={i} className="curtain__col" style={{ '--i': [3, 1, 5, 0, 4, 2, 6][i] } as React.CSSProperties} />
         ))}
