@@ -4,6 +4,7 @@ import '@fontsource-variable/archivo/wdth.css';
 import '@fontsource/instrument-serif/400.css';
 import '@fontsource/instrument-serif/400-italic.css';
 import '@fontsource/ibm-plex-mono/400.css';
+import './styles/themes.css';
 import './styles/global.css';
 import App from './App';
 

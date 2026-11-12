@@ -3,6 +3,7 @@ import { useLocation } from 'react-router';
 import { BRAND, NAV } from '../data/brand';
 import { useBodyLock, useFocusTrap } from '../lib/hooks';
 import { Arrow, Img, Mark, OpenStatus } from './primitives';
+import { ThemeSwitcher } from './ThemeSwitcher';
 import { TLink } from './Transition';
 import './nav.css';
 
@@ -36,7 +37,7 @@ export function Nav() {
 
   return (
     <>
-      <header className={`nav ${solid ? 'is-solid' : ''} ${hidden && !open ? 'is-hidden' : ''} ${open ? 'is-menu' : ''}`}>
+      <header className={`nav tone-hero ${solid ? 'is-solid' : ''} ${hidden && !open ? 'is-hidden' : ''} ${open ? 'is-menu' : ''}`}>
         <div className="nav__in">
           <TLink to="/" className="nav__brand" aria-label="BASALT, home">
             <Mark />
@@ -57,10 +58,11 @@ export function Nav() {
 
           <div className="nav__right">
             <OpenStatus className="nav__status" />
-            <TLink to="/join" className="btn btn--sulfur btn--small nav__apply">
+            <TLink to="/join" className="btn btn--signal btn--small nav__apply">
               <span>Apply</span>
               <Arrow />
             </TLink>
+            <ThemeSwitcher />
             <button
               type="button"
               className="nav__toggle"
@@ -92,7 +94,7 @@ function Menu({ open, onClose, pathname }: { open: boolean; onClose: () => void;
     <div
       id="site-menu"
       ref={ref}
-      className={`menu theme-ink-2 ${open ? 'is-open' : ''}`}
+      className={`menu tone-deep2 ${open ? 'is-open' : ''}`}
       role="dialog"
       aria-modal="true"
       aria-label="Site menu"
@@ -118,7 +120,7 @@ function Menu({ open, onClose, pathname }: { open: boolean; onClose: () => void;
               </li>
             ))}
           </ol>
-          <TLink to="/join" className="btn btn--sulfur menu__apply" onClick={onClose}>
+          <TLink to="/join" className="btn btn--signal menu__apply" onClick={onClose}>
             <span>Apply for membership</span>
             <Arrow />
           </TLink>

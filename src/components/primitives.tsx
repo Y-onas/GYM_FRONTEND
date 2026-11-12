@@ -128,7 +128,7 @@ export function Mark({ className = '' }: { className?: string }) {
 }
 
 /* ---------- buttons ---------- */
-type BtnProps = { to: string; children: ReactNode; variant?: 'solid' | 'sulfur' | 'line'; small?: boolean; className?: string; arrow?: boolean };
+type BtnProps = { to: string; children: ReactNode; variant?: 'solid' | 'signal' | 'line'; small?: boolean; className?: string; arrow?: boolean };
 
 export function ButtonLink({ to, children, variant = 'line', small, className = '', arrow = true }: BtnProps) {
   return (
