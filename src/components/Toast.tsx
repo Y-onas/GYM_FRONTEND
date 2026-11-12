@@ -18,7 +18,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
       {children}
       <div className="toasts" role="status" aria-live="polite">
         {toasts.map((t) => (
-          <div key={t.id} className="toast">
+          <div key={t.id} className="toast tone-raised">
             <span className="toast__mark" aria-hidden="true" />
             <span>{t.message}</span>
             {t.action && (

@@ -27,9 +27,11 @@
 }
 .cidx__name {
   font-family: var(--f-sans);
-  font-stretch: 125%;
-  font-weight: 650;
-  text-transform: uppercase;
+  font-family: var(--d-font);
+  font-stretch: var(--d-stretch);
+  font-style: var(--d-style);
+  font-weight: var(--d-weight);
+  text-transform: var(--d-case);
   font-size: clamp(1.4rem, 3.3vw, 3.4rem);
   line-height: 1;
   letter-spacing: -0.02em;
@@ -80,7 +82,7 @@
   overflow: hidden;
   clip-path: inset(50% 50% 50% 50%);
   transition: clip-path 0.6s var(--ease-io);
-  background: var(--ink-3);
+  background: var(--ph-bg);
 }
 .cidx__float.is-on .cidx__frame.is-active {
   clip-path: inset(0 0 0 0);
@@ -114,7 +116,7 @@
     width: 72px;
     aspect-ratio: 3 / 4;
     overflow: hidden;
-    background: var(--ink-3);
+    background: var(--ph-bg);
   }
   .cidx__n {
     display: none;
