@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router';
 import { BRAND, NAV } from '../data/brand';
 import { useBodyLock, useFocusTrap } from '../lib/hooks';
+import { isPinningScroll } from '../state/theme';
 import { Arrow, Img, Mark, OpenStatus } from './primitives';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { TLink } from './Transition';
@@ -20,6 +21,10 @@ export function Nav() {
       raf = 0;
       const y = window.scrollY;
       setSolid(y > 40);
+      if (isPinningScroll()) {
+        last = y;
+        return;
+      }
       if (Math.abs(y - last) > 6) {
         setHidden(y > last && y > 320);
         last = y;
