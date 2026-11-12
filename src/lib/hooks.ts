@@ -100,7 +100,7 @@ export function useClubNow() {
 
 export function usePageMeta(title: string, description?: string) {
   useEffect(() => {
-    document.title = title ? `${title} — BASALT` : 'BASALT — Athletic House, Kings Cross';
+    document.title = title ? `${title} — Valiant Fitness` : 'Valiant Fitness, Kings Cross';
     if (description) document.querySelector('meta[name="description"]')?.setAttribute('content', description);
   }, [title, description]);
 }

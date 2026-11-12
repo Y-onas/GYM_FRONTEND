@@ -1,5 +1,5 @@
 /* ==========================================================================
-   BASALT — five brand identities
+   Valiant Fitness — five colour themes
    The only file with raw colour values. Each theme art-directs:
      · section roles   hero / deep / deep2 / base / raised / accent / footer
                        (-bg -fg -muted -soft -head -accent -cta -cta-ink -image …)
@@ -12,8 +12,12 @@
    Layout variations per theme live in styles/skins.css.
    ========================================================================== */
 
-/* 01 · BASALT — volcanic editorial. Cooled lava, limestone, one sulfur vent.
+/* 01 · VALIANT — signature strength. Charcoal, limestone and sulfur yellow.
    Dark-led, monochrome photography, serif + wide grotesque, razor edges. */
+:root {
+  --brand-gold: #cfad68;
+}
+
 :root,
 [data-theme='basalt'] {
   --sw-a: #12110f;

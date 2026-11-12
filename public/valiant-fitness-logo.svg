@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 176" role="img" aria-labelledby="title desc">
+  <title id="title">Valiant Fitness</title>
+  <desc id="desc">Gold double V with barbell shoulders and an ivory athletic wordmark on charcoal.</desc>
+  <rect width="560" height="176" rx="8" fill="#12110f"/>
+  <g transform="translate(32 28) scale(1.65)" fill="#cfad68"><path d="M1 10h5v10H1zM8 5h6v20H8zM14 12h36v6H14zM50 5h6v20h-6zM58 10h5v10h-5z"/><path d="M8 22h16l8 14 8-14h16l-4 7h-8L32 50 20 29h-8zM13 35h8l11 19 11-19h8L32 68z"/></g>
+  <text x="166" y="91" font-family="Arial, Helvetica, sans-serif" font-size="51" font-weight="800" letter-spacing="4" fill="#f6f3ed">VALIANT</text>
+  <text x="169" y="128" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="600" letter-spacing="10" fill="#cfad68">FITNESS</text>
+</svg>

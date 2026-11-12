@@ -1,6 +1,6 @@
 /** Brand identities. Colours and type live in src/styles/themes.css; layouts in skins.css. */
 export const THEMES = [
-  { id: 'basalt', name: 'Basalt', concept: 'Volcanic editorial · ink, limestone, sulfur' },
+  { id: 'basalt', name: 'Valiant', concept: 'Signature strength · charcoal, limestone, yellow' },
   { id: 'atelier', name: 'Atelier', concept: 'Refined luxury · espresso, cream, bronze' },
   { id: 'grove', name: 'Grove', concept: 'Natural strength · oat, sage, forest' },
   { id: 'pulse', name: 'Pulse', concept: 'Athletic energy · cobalt, signal orange' },

@@ -351,16 +351,10 @@
 .jdone__mark .mark {
   width: 56px;
   height: 56px;
-  color: var(--fg);
+  color: var(--brand-gold);
 }
-.jdone__mark .mark__c {
+.jdone__mark .mark {
   animation: loader-rise 1.1s var(--ease-out) both;
-}
-.jdone__mark .mark__c--2 {
-  animation-delay: 0.12s;
-}
-.jdone__mark .mark__c--3 {
-  animation-delay: 0.24s;
 }
 @keyframes loader-rise {
   from {

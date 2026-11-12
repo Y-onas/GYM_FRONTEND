@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { BRAND } from '../data/brand';
 import type { ImageName } from '../lib/images';
 import { useScrollProgress } from '../lib/hooks';
 import { Img, Reveal, RevealText } from './primitives';
@@ -37,7 +38,7 @@ export function PageHero({
           <span>
             <span className="phero__idx">{idx}</span> {label}
           </span>
-          <span className="phero__crumb">Basalt / {label}</span>
+          <span className="phero__crumb">{BRAND.name} / {label}</span>
         </Reveal>
         <RevealText as="h1" className="phero__title t-h1" text={title} delay={120} />
         <div className="phero__foot">

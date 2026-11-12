@@ -42,15 +42,24 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 .nav__word {
-  font-family: var(--d-font);
-  font-stretch: var(--d-stretch);
-  font-style: var(--d-style);
-  font-weight: var(--d-weight);
-  font-size: 18px;
-  letter-spacing: 0.02em;
-  text-transform: var(--d-case);
+  display: grid;
+  gap: 4px;
+  font-family: var(--f-sans);
+  font-stretch: 105%;
+  font-weight: 800;
+  font-size: 19px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.nav__fitness {
+  font-size: 9px;
+  font-weight: 550;
+  letter-spacing: 0.38em;
+  color: var(--brand-gold);
 }
 .nav__links {
   display: flex;

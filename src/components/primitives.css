@@ -1,22 +1,15 @@
 .mark {
-  width: 22px;
-  height: 22px;
+  width: 36px;
+  height: 40px;
   flex: none;
+  color: var(--brand-gold);
   fill: currentColor;
 }
-.mark__heat {
-  fill: var(--cta);
-}
-.mark__c {
-  transform-box: fill-box;
-  transform-origin: 50% 100%;
+.mark__bar {
   transition: transform 0.6s var(--ease-out);
 }
-a:hover .mark__c--1 {
-  transform: scaleY(0.8);
-}
-a:hover .mark__c--3 {
-  transform: scaleY(1.25);
+a:hover .mark__bar {
+  transform: translateY(-2px);
 }
 
 .fit {

@@ -4,7 +4,7 @@ import { CoachIndex } from '../components/CoachIndex';
 import { useIntro } from '../components/Loader';
 import { Arrow, ButtonLink, FitText, Img, MaskImg, Odometer, OpenStatus, PillarTag, Reveal, RevealText, SectionHead } from '../components/primitives';
 import { TLink } from '../components/Transition';
-import { PILLARS, type Pillar } from '../data/brand';
+import { BRAND, PILLARS, type Pillar } from '../data/brand';
 import { sessionsFor } from '../data/classes';
 import { coachById } from '../data/coaches';
 import { FLOORS } from '../data/house';
@@ -63,7 +63,7 @@ function Hero() {
 
       <div className="hero__grid wrap">
         <div className="hero__top t-label">
-          <span>Athletic House — Est. 2014</span>
+          <span>{BRAND.name} — Est. {BRAND.established}</span>
           <span className="hero__coords">51.5362° N · 0.1233° W</span>
         </div>
 
@@ -109,8 +109,8 @@ function Hero() {
         </div>
       </div>
 
-      <FitText as="p" className="hero__word t-wide" label="Basalt">
-        {'Basalt'.split('').map((ch, i) => (
+      <FitText as="p" className="hero__word t-wide" label="Valiant Fitness">
+        {'Valiant Fitness'.split('').map((ch, i) => (
           <span key={i} className="hero__ch" style={{ '--i': i } as CSSProperties}>
             {ch}
           </span>
@@ -127,7 +127,7 @@ function Hero() {
 
 /* ---------------------------------------------------------------- manifesto */
 const MANIFESTO =
-  'Basalt is what molten rock becomes when it is given time to cool. Dense. Unhurried. Nearly impossible to break. We think strength is made the same way — under pressure, with heat, over time. Not in thirty-day challenges. In years.';
+  'Valiant means showing up with courage. Taking on the next rep. Coming back stronger. At Valiant Fitness, we build strength through purposeful training, expert coaching and proper recovery. Progress takes pressure, heat and time. Bring your determination. We’ll bring the plan.';
 
 function Manifesto() {
   const ref = useScrollProgress<HTMLDivElement>('--p', 'through');
@@ -341,7 +341,7 @@ function CountUp({ to, prefix = '', suffix = '' }: { to: number; prefix?: string
 
 function Numbers() {
   return (
-    <section className="numbers tone-base section--tight" aria-label="BASALT in numbers">
+    <section className="numbers tone-base section--tight" aria-label="Valiant Fitness in numbers">
       <div className="wrap">
         <ul className="numbers__list">
           {NUMBERS.map((n, i) => (
@@ -481,7 +481,7 @@ function MembershipTeaser() {
 /* ---------------------------------------------------------------- voice */
 function Voice() {
   return (
-    <section className="voice tone-base section" aria-label="A member on BASALT">
+    <section className="voice tone-base section" aria-label="A member on Valiant Fitness">
       <div className="wrap voice__grid">
         <MaskImg name="back" alt="A member rests between sets in the Hall" sizes="(max-width: 900px) 100vw, 40vw" className="voice__img" />
         <figure className="voice__fig">

@@ -10,7 +10,7 @@ import { usePageMeta } from '../lib/hooks';
 import './training.css';
 
 export default function Training() {
-  usePageMeta('Training', 'Programmes, personal training and the coaches of BASALT.');
+  usePageMeta('Training', 'Programmes, personal training and the coaches of Valiant Fitness.');
   return (
     <div className="page training">
       <PageHero

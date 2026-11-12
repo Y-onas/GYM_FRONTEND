@@ -55,7 +55,7 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
         return;
       }
       busy.current = true;
-      setLabel(ROUTE_LABELS[url.pathname] ?? 'Basalt');
+      setLabel(ROUTE_LABELS[url.pathname] ?? 'Valiant Fitness');
       setPhase('covering');
       timers.current.push(
         window.setTimeout(() => {

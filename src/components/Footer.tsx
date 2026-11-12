@@ -89,12 +89,12 @@ export function Footer() {
         </div>
       </div>
 
-      <FitText className="footer__word t-wide" label="BASALT">
-        Basalt
+      <FitText className="footer__word t-wide" label={BRAND.name}>
+        {BRAND.name}
       </FitText>
 
       <div className="wrap footer__legal t-label">
-        <span>© {new Date().getFullYear()} Basalt Athletic House Ltd</span>
+        <span>© {new Date().getFullYear()} {BRAND.name}</span>
         <span>Est. {BRAND.established} in a listed 1871 ironworks</span>
         <button type="button" className="ulink ulink--in" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           Back to top ↑

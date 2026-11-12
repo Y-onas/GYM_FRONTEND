@@ -116,14 +116,12 @@ export function Arrow({ className = 'btn__arrow', dir = 'right' }: { className?:
   );
 }
 
-/** Three basalt columns: the house mark. */
+/** Double V and barbell shoulders, inspired by the Valiant reference. */
 export function Mark({ className = '' }: { className?: string }) {
   return (
-    <svg className={`mark ${className}`} viewBox="0 0 22 22" aria-hidden="true">
-      <rect className="mark__c mark__c--1" x="1" y="6" width="5.5" height="16" />
-      <rect className="mark__c mark__c--2" x="8.25" y="1" width="5.5" height="21" />
-      <rect className="mark__c mark__c--3" x="15.5" y="9" width="5.5" height="13" />
-      <rect className="mark__heat" x="15.5" y="5.5" width="5.5" height="2" />
+    <svg className={`mark ${className}`} viewBox="0 0 64 72" aria-hidden="true">
+      <path className="mark__bar" d="M1 10h5v10H1zM8 5h6v20H8zM14 12h36v6H14zM50 5h6v20h-6zM58 10h5v10h-5z" />
+      <path className="mark__v" d="M8 22h16l8 14 8-14h16l-4 7h-8L32 50 20 29h-8zM13 35h8l11 19 11-19h8L32 68z" />
     </svg>
   );
 }

@@ -16,15 +16,11 @@ function initialTheme(): ThemeId {
   return isThemeId(attr) ? attr : DEFAULT_THEME;
 }
 
-/** Browser chrome (address bar colour, favicon) follows the active tokens. */
+/** Address bar colour follows the active theme; the Valiant favicon stays consistent. */
 function syncChrome() {
   const cs = getComputedStyle(root());
-  const v = (name: string) => cs.getPropertyValue(name).trim();
-  const [dark, signal, light] = [v('--sw-a'), v('--sw-b'), v('--sw-c')];
+  const dark = cs.getPropertyValue('--sw-a').trim();
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark);
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" fill="${dark}"/><g fill="${light}"><rect x="7" y="11" width="5" height="14"/><rect x="13.5" y="7" width="5" height="18"/><rect x="20" y="14" width="5" height="11"/></g><rect x="20" y="11" width="5" height="2" fill="${signal}"/></svg>`;
-  const icon = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
-  if (icon) icon.href = `data:image/svg+xml,${encodeURIComponent(svg)}`;
 }
 
 let pinning = false;

@@ -1,7 +1,7 @@
 {
-  "name": "basalt-athletic-house",
+  "name": "valiant-fitness",
   "version": "1.0.0",
-  "description": "BASALT — a members training house. Marketing site and membership experience.",
+  "description": "Valiant Fitness — a members training house. Marketing site and membership experience.",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

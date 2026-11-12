@@ -44,9 +44,9 @@ export function Nav() {
     <>
       <header className={`nav tone-hero ${solid || pathname === '/join' ? 'is-solid' : ''} ${hidden && !open ? 'is-hidden' : ''} ${open ? 'is-menu' : ''}`}>
         <div className="nav__in">
-          <TLink to="/" className="nav__brand" aria-label="BASALT, home">
+          <TLink to="/" className="nav__brand" aria-label={`${BRAND.name}, home`}>
             <Mark />
-            <span className="nav__word">Basalt</span>
+            <span className="nav__word">{BRAND.shortName}<span className="nav__fitness">Fitness</span></span>
           </TLink>
 
           <nav className="nav__links" aria-label="Primary">

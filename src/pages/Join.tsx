@@ -47,7 +47,7 @@ function slotTaken(date: string, slot: string) {
 }
 
 export default function Join() {
-  usePageMeta('Apply', 'Apply for BASALT membership and book your induction.');
+  usePageMeta('Apply', 'Apply for Valiant Fitness membership and book your induction.');
   const [params] = useSearchParams();
   const now = useClubNow();
   const [step, setStep] = useState(0);
@@ -199,7 +199,7 @@ export default function Join() {
               className="btn btn--signal"
               onClick={() =>
                 downloadIcs({
-                  title: 'BASALT induction',
+                  title: 'Valiant Fitness induction',
                   date: d.date,
                   start: d.slot,
                   minutes: 60,

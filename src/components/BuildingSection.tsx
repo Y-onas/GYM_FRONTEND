@@ -95,7 +95,7 @@ function Drawing({ shown, onHover, onPick }: { shown: FloorId; onHover: (f: Floo
   }).join(' ');
 
   return (
-    <svg className="bsec__svg" viewBox="0 0 800 640" role="img" aria-label="Cross-section of the BASALT building showing four levels">
+    <svg className="bsec__svg" viewBox="0 0 800 640" role="img" aria-label="Cross-section of the Valiant Fitness building showing four levels">
       <defs>
         <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
           <line x1="0" y1="0" x2="0" y2="8" className="bsec__hatch" />

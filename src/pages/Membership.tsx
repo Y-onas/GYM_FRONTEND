@@ -7,7 +7,7 @@ import { usePageMeta } from '../lib/hooks';
 import './membership.css';
 
 export default function Membership() {
-  usePageMeta('Membership', 'Base, House and Private membership at BASALT. Monthly or annual, capped at 1,200 members.');
+  usePageMeta('Membership', 'Base, House and Private membership at Valiant Fitness. Monthly or annual, capped at 1,200 members.');
   const [billing, setBilling] = useState<Billing>('monthly');
   const [focus, setFocus] = useState<PlanId | null>(null);
   return (

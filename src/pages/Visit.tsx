@@ -26,7 +26,7 @@ const TRAVEL = [
 ];
 
 export default function Visit() {
-  usePageMeta('Visit', 'Find BASALT at The Old Ironworks, 41 Kiln Street, Kings Cross. Hours, directions and enquiries.');
+  usePageMeta('Visit', 'Find Valiant Fitness at The Old Ironworks, 41 Kiln Street, Kings Cross. Hours, directions and enquiries.');
   const now = useClubNow();
   return (
     <div className="page visit">
@@ -110,7 +110,7 @@ export default function Visit() {
 
 function MapDrawing() {
   return (
-    <svg className="map" viewBox="0 0 600 520" role="img" aria-label="Map: BASALT on Kiln Street, north of King’s Cross St Pancras station and the Regent’s Canal">
+    <svg className="map" viewBox="0 0 600 520" role="img" aria-label="Map: Valiant Fitness on Kiln Street, north of King’s Cross St Pancras station and the Regent’s Canal">
       <rect width="600" height="520" className="map__bg" />
       {/* blocks */}
       {[
@@ -151,7 +151,7 @@ function MapDrawing() {
         <rect x="-10" y="-10" width="20" height="20" className="map__pin" />
       </g>
       <text x="292" y="80" className="map__label map__label--club">
-        BASALT
+        Valiant Fitness
       </text>
       <text x="292" y="96" className="map__label">
         41 Kiln Street

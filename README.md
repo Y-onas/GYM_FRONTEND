@@ -1,6 +1,6 @@
-# BASALT — Athletic House
+# Valiant Fitness
 
-Marketing site and membership experience for BASALT, a fictional members' training house in a converted 1871 ironworks in Kings Cross, London.
+Marketing site and membership experience for Valiant Fitness, a fictional members' training house in a converted 1871 ironworks in Kings Cross, London.
 
 ## Stack
 
@@ -39,7 +39,7 @@ Five complete identities are selectable from the swatches in the top-right corne
 
 | Theme | Direction | Character |
 | --- | --- | --- |
-| Basalt (default) | Volcanic editorial | Ink, limestone, sulfur · monochrome photography · serif + wide grotesque · sharp edges |
+| Valiant (default) | Signature strength | Charcoal, limestone, yellow · monochrome photography · serif + wide grotesque · sharp edges |
 | Atelier | Refined luxury | Espresso, cream, bronze · warm-graded photos · arched frames · spaced small caps |
 | Grove | Natural strength | Oat, sage, forest · daylight photos in organic blobs · soft serif · rounded panels |
 | Pulse | Athletic energy | Cobalt, signal orange · screen-blended athlete poster · condensed heavy caps · hard shadows |
@@ -54,3 +54,7 @@ Five complete identities are selectable from the swatches in the top-right corne
 - Opening hours, "open now", floor occupancy and the timetable all run on Europe/London time.
 - Bookings, the application draft and form submissions are client-side only; there is no backend.
 - Photography: Unsplash (Unsplash License), regraded for this project.
+
+## Logo
+
+The Valiant Fitness mark pairs a double V with barbell-inspired shoulders. The responsive SVG is shared by the navigation, introduction and membership confirmation; `public/valiant-favicon.svg` uses the same silhouette and stays consistent across themes. `public/valiant-fitness-logo.svg` is the standalone gold-and-ivory lockup. Internal `basalt` theme IDs and storage keys are retained for existing saved preferences and bookings.

@@ -10,9 +10,9 @@ export function downloadIcs(opts: { title: string; date: string; start: string; 
   const ics = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//BASALT Athletic House//EN',
+    'PRODID:-//Valiant Fitness//EN',
     'BEGIN:VEVENT',
-    `UID:${Date.now()}@basalt.house`,
+    `UID:${Date.now()}@valiant-fitness`,
     `DTSTAMP:${stamp}`,
     `DTSTART;TZID=Europe/London:${dt(hh, mm)}`,
     `DTEND;TZID=Europe/London:${dt(Math.floor(endTotal / 60), endTotal % 60)}`,

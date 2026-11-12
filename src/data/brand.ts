@@ -1,8 +1,9 @@
 import type { ImageName } from '../lib/images';
 
 export const BRAND = {
-  name: 'BASALT',
-  descriptor: 'Athletic House',
+  name: 'Valiant Fitness',
+  shortName: 'Valiant',
+  descriptor: 'Strength · Conditioning · Recovery',
   established: 2014,
   address: ['The Old Ironworks', '41 Kiln Street', 'London N1C 4BT'],
   phone: '+44 20 7946 0811',
@@ -58,7 +59,7 @@ export const NAV = [
 ];
 
 export const ROUTE_LABELS: Record<string, string> = {
-  '/': 'Basalt',
+  '/': 'Valiant Fitness',
   '/house': 'The House',
   '/training': 'Training',
   '/timetable': 'Timetable',

@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { useBodyLock } from '../lib/hooks';
+import { BRAND } from '../data/brand';
+import { Mark } from './primitives';
 import './loader.css';
 
 const IntroCtx = createContext(true);
@@ -16,12 +18,9 @@ export function shouldPlayIntro() {
   }
 }
 
-/**
- * First-visit loader: molten rock cooling from 1,200°C to room temperature
- * while the three columns of the mark set.
- */
+/** First-visit warm-up: the Valiant mark rises as training readiness reaches 100%. */
 export function Loader({ onDone }: { onDone: () => void }) {
-  const [temp, setTemp] = useState(1200);
+  const [progress, setProgress] = useState(0);
   const [out, setOut] = useState(false);
   const [gone, setGone] = useState(false);
   const done = useRef(onDone);
@@ -35,7 +34,7 @@ export function Loader({ onDone }: { onDone: () => void }) {
     const tick = (t: number) => {
       const p = Math.min(1, (t - start) / DURATION);
       const eased = 1 - Math.pow(1 - p, 3);
-      setTemp(Math.round(1200 - (1200 - 21) * eased));
+      setProgress(Math.round(100 * eased));
       if (p < 1) raf = requestAnimationFrame(tick);
       else {
         try {
@@ -55,24 +54,18 @@ export function Loader({ onDone }: { onDone: () => void }) {
   }, []);
 
   if (gone) return null;
-  const glow = Math.max(0, (temp - 21) / 1179);
   return (
-    <div className={`loader tone-hero ${out ? 'is-out' : ''}`} role="status" aria-label="Loading BASALT">
+    <div className={`loader tone-hero ${out ? 'is-out' : ''}`} role="status" aria-label="Loading Valiant Fitness">
       <div className="loader__core">
-        <div className="loader__cols" aria-hidden="true">
-          <span style={{ '--h': '62%', '--d': '0ms' } as React.CSSProperties} />
-          <span style={{ '--h': '100%', '--d': '120ms' } as React.CSSProperties} />
-          <span style={{ '--h': '48%', '--d': '240ms' } as React.CSSProperties} />
-        </div>
+        <Mark className="loader__mark" />
+        <p className="loader__name">{BRAND.name}</p>
         <div className="loader__meta t-label" aria-hidden="true">
-          <span>Cooling</span>
-          <span className="loader__temp" style={{ color: `color-mix(in oklab, var(--accent) ${Math.round(glow * 100)}%, var(--fg))` }}>
-            {temp.toLocaleString('en-GB')}°C
-          </span>
+          <span>Warming up</span>
+          <span className="loader__progress">{progress}%</span>
         </div>
       </div>
       <div className="loader__foot t-label" aria-hidden="true">
-        <span>Basalt — Athletic House</span>
+        <span>{BRAND.name}</span>
         <span>Kings Cross, London</span>
       </div>
     </div>

@@ -91,7 +91,7 @@ export const EQUIPMENT: Equipment[] = [
 export const TIMELINE = [
   { year: '1871', title: 'Cast', body: 'Kiln Street Ironworks opens beside the Regent’s Canal, casting railway fittings for the new northern lines.' },
   { year: '1968', title: 'Cooled', body: 'The furnaces go out. For forty years the building stores paper for the printers on York Way.' },
-  { year: '2014', title: 'Reopened', body: 'BASALT opens the Hall with six racks, two coaches and a membership cap we have never raised.' },
+  { year: '2014', title: 'Reopened', body: 'Valiant Fitness opens the Hall with six racks, two coaches and a membership cap we have never raised.' },
   { year: '2019', title: 'Raised', body: 'The Studios open beneath the restored sawtooth roof. Kiln becomes the most booked class in the house.' },
   { year: '2023', title: 'Deepened', body: 'The old coal store becomes the Vault: sauna, plunge, pool and a physiotherapy team of four.' },
 ];

@@ -18,7 +18,7 @@ import './timetable.css';
 type TimeId = (typeof TIMES_OF_DAY)[number]['id'];
 
 export default function Timetable() {
-  usePageMeta('Timetable', 'Book BASALT group classes for the next seven days.');
+  usePageMeta('Timetable', 'Book Valiant Fitness group classes for the next seven days.');
   const days = useMemo(() => upcomingDays(7), []);
   const [params, setParams] = useSearchParams();
   const now = useClubNow();
@@ -357,7 +357,7 @@ function MyBookings({ ids, onCancel }: { ids: string[]; onCancel: (s: Session) =
                 className="t-label ulink"
                 onClick={() =>
                   downloadIcs({
-                    title: `${s.type.name} at BASALT`,
+                    title: `${s.type.name} at Valiant Fitness`,
                     date: s.date,
                     start: s.start,
                     minutes: s.type.minutes,
