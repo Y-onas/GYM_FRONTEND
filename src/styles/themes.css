@@ -1,0 +1,213 @@
+/* ==========================================================================
+   BASALT — five brand identities
+   The only file in the codebase that contains raw colour values.
+
+   Every theme defines the same roles:
+     --dark / --dark-2 / --dark-3     primary brand dark, secondary dark, dark surface
+     --light / --light-2 / --light-3  main light ground, secondary ground, raised surface
+     --text-dark / --text-light       body text on dark / on light
+     --head-dark / --head-light       heading colour on dark / on light
+     --mute / --mute-l / --mute-2     secondary text on dark, soft text on dark, secondary text on light
+     --signal / --signal-d            accent: CTAs, highlights, active states / its deep variant
+     --signal-ink                     text and icons placed on --signal
+     --second                         secondary brand colour: Time pillar, water, cold
+     --warn / --danger / --danger-on-dark   status colours tuned to each ground
+     --shadow                         shadow and scrim base
+     --ph-*                           photography grade (filter components)
+   Selectors are attribute-only so a swatch can preview any theme locally.
+   ========================================================================== */
+
+/* 01 · Basalt — volcanic. Cooled lava, limestone, a single sulfur vent. */
+:root,
+[data-theme='basalt'] {
+  --dark: #12110f;
+  --dark-2: #1b1a17;
+  --dark-3: #26241f;
+  --light: #ece7dd;
+  --light-2: #e2dccf;
+  --light-3: #f6f3ed;
+  --text-dark: #ece7dd;
+  --text-light: #12110f;
+  --head-dark: #f6f3ed;
+  --head-light: #12110f;
+  --mute: #8a8478;
+  --mute-l: #b8b2a5;
+  --mute-2: #5f5a51;
+  --signal: #e6d34a;
+  --signal-d: #b9a71f;
+  --signal-ink: #12110f;
+  --second: #6f9a8d;
+  --warn: #9a4b1b;
+  --danger: #b0441c;
+  --danger-on-dark: #f08a5d;
+  --shadow: #000000;
+  --ph-gray: 0;
+  --ph-sepia: 0;
+  --ph-hue: 0deg;
+  --ph-sat: 1;
+  --ph-con: 1;
+  --ph-bright: 1;
+  --grain: 0.05;
+}
+
+/* 02 · Atelier — refined luxury. Midnight lacquer, ivory card, champagne leaf. */
+[data-theme='atelier'] {
+  --dark: #0e1322;
+  --dark-2: #141a2d;
+  --dark-3: #1f273e;
+  --light: #f3eee5;
+  --light-2: #e8e0d1;
+  --light-3: #faf7f1;
+  --text-dark: #efe9de;
+  --text-light: #141a2d;
+  --head-dark: #f7efe0;
+  --head-light: #0e1322;
+  --mute: #8f95a8;
+  --mute-l: #bfc2ce;
+  --mute-2: #5a5e6c;
+  --signal: #d4b479;
+  --signal-d: #a8864a;
+  --signal-ink: #0e1322;
+  --second: #9aa7c4;
+  --warn: #8c3a2a;
+  --danger: #9e2f2a;
+  --danger-on-dark: #f2a08a;
+  --shadow: #03050c;
+  --ph-gray: 0.25;
+  --ph-sepia: 0.38;
+  --ph-hue: -10deg;
+  --ph-sat: 0.85;
+  --ph-con: 1.02;
+  --ph-bright: 1.02;
+  --grain: 0.035;
+}
+
+/* 03 · Grove — natural strength. Moss, oat linen, fired terracotta. */
+[data-theme='grove'] {
+  --dark: #17201a;
+  --dark-2: #1e2921;
+  --dark-3: #2a372d;
+  --light: #ebe7da;
+  --light-2: #dfd9c8;
+  --light-3: #f5f2e8;
+  --text-dark: #ebe7da;
+  --text-light: #17201a;
+  --head-dark: #f3efe2;
+  --head-light: #1b2b20;
+  --mute: #8f9b8c;
+  --mute-l: #bcc5b6;
+  --mute-2: #55604f;
+  --signal: #dc8657;
+  --signal-d: #b0602f;
+  --signal-ink: #17201a;
+  --second: #93ab7c;
+  --warn: #974719;
+  --danger: #a63a22;
+  --danger-on-dark: #f3a17b;
+  --shadow: #040805;
+  --ph-gray: 0.15;
+  --ph-sepia: 0.5;
+  --ph-hue: 38deg;
+  --ph-sat: 0.6;
+  --ph-con: 1;
+  --ph-bright: 1;
+  --grain: 0.06;
+}
+
+/* 04 · Concrete — architectural minimalism. Board-formed grey, plaster white, safety orange. */
+[data-theme='concrete'] {
+  --dark: #1a1b1d;
+  --dark-2: #222326;
+  --dark-3: #2f3135;
+  --light: #efefec;
+  --light-2: #e2e2de;
+  --light-3: #fafaf8;
+  --text-dark: #f1f1ee;
+  --text-light: #141517;
+  --head-dark: #ffffff;
+  --head-light: #0e0f10;
+  --mute: #8d8f93;
+  --mute-l: #babcc0;
+  --mute-2: #5a5c60;
+  --signal: #ff5b22;
+  --signal-d: #d2420c;
+  --signal-ink: #111214;
+  --second: #8fa3b3;
+  --warn: #b33a0a;
+  --danger: #b42318;
+  --danger-on-dark: #ff9d84;
+  --shadow: #000000;
+  --ph-gray: 1;
+  --ph-sepia: 0;
+  --ph-hue: 0deg;
+  --ph-sat: 1;
+  --ph-con: 1.08;
+  --ph-bright: 1.03;
+  --grain: 0.03;
+}
+
+/* 05 · Volt — futurist performance. Ultramarine night, cool chalk, volt lime, electric violet. */
+[data-theme='volt'] {
+  --dark: #090c22;
+  --dark-2: #0f1438;
+  --dark-3: #1a2050;
+  --light: #eceef6;
+  --light-2: #dde1ef;
+  --light-3: #f7f8fc;
+  --text-dark: #eceef6;
+  --text-light: #0b0f2e;
+  --head-dark: #ffffff;
+  --head-light: #0a0e3a;
+  --mute: #8c92bb;
+  --mute-l: #bcc1df;
+  --mute-2: #4e5479;
+  --signal: #c6ff2e;
+  --signal-d: #8fc200;
+  --signal-ink: #090c22;
+  --second: #8a73ff;
+  --warn: #a3226f;
+  --danger: #c0262d;
+  --danger-on-dark: #ff9a9a;
+  --shadow: #01020c;
+  --ph-gray: 1;
+  --ph-sepia: 0.45;
+  --ph-hue: 188deg;
+  --ph-sat: 1.7;
+  --ph-con: 1.08;
+  --ph-bright: 0.98;
+  --grain: 0.045;
+}
+
+/* ---------- theme change ---------- */
+
+/* Radial reveal from the chosen swatch (View Transitions). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) {
+  animation: theme-reveal 0.85s var(--ease-io) both;
+}
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--vt-x, 100%) var(--vt-y, 0%));
+  }
+  to {
+    clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 100%) var(--vt-y, 0%));
+  }
+}
+
+/* Fallback when View Transitions are unavailable: a short colour cross-fade. */
+html.is-retheming *,
+html.is-retheming *::before,
+html.is-retheming *::after {
+  transition:
+    color 0.5s ease,
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    fill 0.5s ease,
+    stroke 0.5s ease,
+    box-shadow 0.5s ease,
+    filter 0.5s ease !important;
+}

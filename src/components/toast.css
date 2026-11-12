@@ -14,18 +14,18 @@
   min-height: 52px;
   max-width: min(440px, calc(100vw - 2 * var(--pad)));
   padding: 12px 18px;
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--light);
+  color: var(--dark);
   font-size: 14px;
-  box-shadow: 0 18px 50px -20px rgb(0 0 0 / 0.55);
+  box-shadow: 0 18px 50px -20px color-mix(in srgb, var(--shadow) 55%, transparent);
   pointer-events: auto;
   animation: toast-in 0.6s var(--ease-out) both;
 }
 .toast__mark {
   width: 8px;
   height: 8px;
-  background: var(--sulfur);
-  box-shadow: 0 0 0 1px var(--ink);
+  background: var(--signal);
+  box-shadow: 0 0 0 1px var(--dark);
   flex: none;
 }
 .toast__action {

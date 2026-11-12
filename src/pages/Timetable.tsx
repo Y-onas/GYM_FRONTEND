@@ -92,7 +92,7 @@ export default function Timetable() {
         ]}
       />
 
-      <section className="tt__board theme-paper" aria-label="Class schedule">
+      <section className="tt__board tone-light" aria-label="Class schedule">
         <div className="tt__controls">
           <div className="wrap">
             <div className="tt__days" role="tablist" aria-label="Choose a day">
@@ -334,7 +334,7 @@ function MyBookings({ ids, onCancel }: { ids: string[]; onCancel: (s: Session) =
     .sort((a, b) => (a.date + a.start).localeCompare(b.date + b.start));
   const { bookings } = useBookings();
   return (
-    <div className="mybk theme-paper">
+    <div className="mybk tone-light">
       <p className="t-label t-label--muted">Your week</p>
       <h2 className="t-h2">My bookings</h2>
       {sessions.length === 0 && <p className="t-body">No sessions booked yet. Choose a class and press Book.</p>}

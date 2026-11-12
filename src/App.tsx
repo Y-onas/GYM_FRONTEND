@@ -6,6 +6,7 @@ import { Nav } from './components/Nav';
 import { ToastProvider } from './components/Toast';
 import { TransitionProvider } from './components/Transition';
 import { BookingProvider } from './state/bookings';
+import { ThemeProvider } from './state/theme';
 
 const pages = {
   home: () => import('./pages/Home'),
@@ -48,7 +49,7 @@ function Shell() {
       {playIntro && <Loader onDone={() => setIntroDone(true)} />}
       <Nav />
       <main id="main" tabIndex={-1}>
-        <Suspense fallback={<div style={{ minHeight: '100vh', background: 'var(--ink)' }} />}>
+        <Suspense fallback={<div style={{ minHeight: '100vh', background: 'var(--dark)' }} />}>
           <Routes location={location}>
             <Route path="/" element={<Home />} />
             <Route path="/house" element={<House />} />
@@ -69,6 +70,7 @@ function Shell() {
 export default function App() {
   return (
     <BrowserRouter>
+      <ThemeProvider>
       <ToastProvider>
         <BookingProvider>
           <TransitionProvider>
@@ -76,6 +78,7 @@ export default function App() {
           </TransitionProvider>
         </BookingProvider>
       </ToastProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }
