@@ -1,0 +1,87 @@
+.dialog {
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --muted: var(--stone-2);
+  --line: rgb(18 17 15 / 0.16);
+  --line-strong: rgb(18 17 15 / 0.42);
+  --focus: var(--ink);
+  --accent: var(--ink);
+  padding: 0;
+  border: 0;
+  background: var(--bg);
+  color: var(--fg);
+  max-width: none;
+  max-height: none;
+  overflow: hidden;
+}
+.dialog::backdrop {
+  background: rgb(18 17 15 / 0.72);
+  backdrop-filter: blur(6px);
+  animation: dlg-fade 0.4s both;
+}
+.dialog--sheet {
+  width: min(1180px, calc(100vw - 2 * var(--pad)));
+  max-height: calc(100dvh - 48px);
+  margin: auto;
+}
+.dialog--sheet[open] {
+  animation: dlg-rise 0.7s var(--ease-out) both;
+}
+.dialog--drawer {
+  width: min(520px, 100vw);
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0 0 0 auto;
+}
+.dialog--drawer[open] {
+  animation: dlg-slide 0.6s var(--ease-out) both;
+}
+.dialog__body {
+  position: relative;
+  height: 100%;
+  max-height: inherit;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.dialog__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  padding: 0 12px;
+  background: var(--bg);
+  color: var(--fg);
+}
+.dialog__close:hover svg {
+  transform: rotate(90deg);
+}
+.dialog__close svg {
+  transition: transform 0.5s var(--ease-out);
+}
+@keyframes dlg-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes dlg-rise {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+@keyframes dlg-slide {
+  from {
+    transform: translateX(100%);
+  }
+}
+@media (max-width: 640px) {
+  .dialog--sheet {
+    width: 100vw;
+    max-height: 100dvh;
+    height: 100dvh;
+  }
+}

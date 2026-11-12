@@ -1,0 +1,78 @@
+/* Page transition: seven basalt columns rise to cover, then continue up and away. */
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 8000;
+  visibility: hidden;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  pointer-events: none;
+}
+.curtain[data-phase='covering'],
+.curtain[data-phase='revealing'] {
+  pointer-events: all;
+  visibility: visible;
+}
+.curtain__col {
+  display: block;
+  background: var(--ink-2);
+  margin-right: -1px;
+  transform: translate3d(0, 101%, 0);
+  box-shadow: inset 1px 0 0 rgb(236 231 221 / 0.05);
+}
+.curtain__col::before {
+  content: '';
+  display: block;
+  height: 3px;
+  background: var(--sulfur);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+}
+.curtain[data-phase='covering'] .curtain__col {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.5s var(--ease-io);
+  transition-delay: calc(var(--i) * 22ms);
+}
+.curtain[data-phase='covering'] .curtain__col::before {
+  transform: scaleX(1);
+  transition-delay: calc(var(--i) * 22ms + 180ms);
+}
+.curtain[data-phase='revealing'] .curtain__col {
+  transform: translate3d(0, -101%, 0);
+  transition: transform 0.62s var(--ease-io);
+  transition-delay: calc(var(--i) * 20ms);
+}
+.curtain__label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  color: var(--paper);
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.3s,
+    transform 0.5s var(--ease-out);
+}
+.curtain[data-phase='covering'] .curtain__label {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.32s;
+}
+.curtain[data-phase='revealing'] .curtain__label {
+  opacity: 0;
+  transform: translateY(-24px);
+  transition-duration: 0.25s;
+}
+.curtain__idx {
+  color: var(--stone);
+}
+.curtain__name {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
+}

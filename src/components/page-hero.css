@@ -1,0 +1,122 @@
+.phero {
+  position: relative;
+  overflow: hidden;
+  --p: 0;
+}
+.phero--img {
+  min-height: max(620px, 92svh);
+  display: grid;
+}
+.phero__media {
+  position: absolute;
+  inset: 0;
+  transform: translate3d(0, calc(var(--p) * 16%), 0) scale(1.06);
+}
+.phero__media .img {
+  animation: phero-zoom 2.4s var(--ease-out) both;
+}
+@keyframes phero-zoom {
+  from {
+    transform: scale(1.12);
+  }
+}
+.phero--img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(18 17 15 / 0.7) 0%, rgb(18 17 15 / 0.1) 40%, rgb(18 17 15 / 0.9) 100%),
+    linear-gradient(90deg, rgb(18 17 15 / 0.5), transparent 70%);
+}
+.phero__in {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 40px;
+  padding-top: calc(var(--nav-h) + 28px);
+  padding-bottom: clamp(40px, 5vw, 72px);
+  min-height: inherit;
+}
+.phero:not(.phero--img) .phero__in {
+  padding-bottom: clamp(56px, 7vw, 112px);
+}
+.phero__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  color: var(--stone-l);
+}
+.phero__idx {
+  color: var(--sulfur);
+}
+.phero__title {
+  align-self: end;
+  max-width: 14ch;
+  padding-top: clamp(40px, 8vw, 120px);
+}
+.phero__title em {
+  color: var(--sulfur);
+}
+.phero__foot {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap);
+  row-gap: 32px;
+  align-items: end;
+}
+.phero__lede {
+  grid-column: 1 / span 6;
+  color: var(--stone-l);
+}
+.phero__meta {
+  grid-column: 8 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+.phero__meta div {
+  display: grid;
+  gap: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-strong);
+}
+.phero__meta dd {
+  font-stretch: 120%;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+@media (max-width: 900px) {
+  .phero__lede,
+  .phero__meta {
+    grid-column: 1 / -1;
+  }
+  .phero__crumb {
+    display: none;
+  }
+}
+@media (max-width: 520px) {
+  .phero__meta {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ctaband__in {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 40px;
+  padding-block: clamp(72px, 9vw, 140px);
+}
+.ctaband__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+@media (max-width: 900px) {
+  .ctaband__in {
+    grid-template-columns: 1fr;
+  }
+}

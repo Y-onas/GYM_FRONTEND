@@ -1,0 +1,458 @@
+.join {
+  display: grid;
+  grid-template-columns: minmax(340px, 0.8fr) 1.4fr;
+  min-height: 100vh;
+}
+.jsum {
+  position: relative;
+}
+.jsum__img {
+  position: absolute;
+  inset: 0;
+  opacity: 0.32;
+}
+.jsum__in {
+  position: sticky;
+  top: 0;
+  display: grid;
+  align-content: end;
+  gap: 18px;
+  min-height: 100vh;
+  padding: calc(var(--nav-h) + 40px) var(--pad) 48px;
+}
+.jsum__plan {
+  font-size: clamp(3rem, 6vw, 6rem);
+  color: var(--sulfur);
+}
+.jsum__line {
+  font-family: var(--f-serif);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  max-width: 22ch;
+}
+.jsum__rows {
+  border-top: 1px solid var(--line-strong);
+  margin-top: 12px;
+}
+.jsum__rows div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+}
+.jsum__rows dt {
+  color: var(--stone-l);
+}
+.jsum__rows .t-num {
+  font-size: 1.5rem;
+}
+.jsum__total dd .t-num {
+  font-size: 2.6rem;
+  color: var(--sulfur);
+}
+.jsum__rows s {
+  color: var(--stone);
+}
+
+.jform {
+  padding: calc(var(--nav-h) + 32px) clamp(20px, 5vw, 96px) 80px;
+  display: grid;
+  align-content: start;
+  gap: 40px;
+}
+.jsteps {
+  position: relative;
+  padding-bottom: 14px;
+}
+.jsteps ol {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.jsteps button {
+  display: grid;
+  gap: 4px;
+  text-align: left;
+  color: var(--muted);
+  font-size: 14px;
+}
+.jsteps button:disabled {
+  cursor: default;
+}
+.jsteps__i.is-current button {
+  color: var(--fg);
+}
+.jsteps__i.is-done button {
+  color: var(--fg);
+}
+.jsteps__i.is-done button span:last-child {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line-strong);
+}
+.jsteps::before,
+.jsteps__bar {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--line);
+}
+.jsteps__bar {
+  background: var(--ink);
+  transform-origin: left;
+  transition: transform 0.8s var(--ease-out);
+}
+.jform__form {
+  display: grid;
+  gap: 48px;
+}
+.jstep {
+  display: grid;
+  gap: 32px;
+  animation: jstep-in 0.7s var(--ease-out) both;
+}
+.jstep h1 {
+  outline: none;
+}
+@keyframes jstep-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+.jplans {
+  display: grid;
+  gap: 10px;
+}
+.jplan {
+  position: relative;
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 6px 16px;
+  align-items: baseline;
+  padding: 22px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition:
+    border-color 0.3s,
+    background 0.3s;
+}
+.jplan:hover {
+  border-color: var(--line-strong);
+}
+.jplan.is-on {
+  border-color: var(--ink);
+  background: var(--bone);
+  box-shadow: inset 4px 0 0 var(--sulfur-d);
+}
+.jplan:has(input:focus-visible),
+.jlevel:has(input:focus-visible),
+.jdate:has(input:focus-visible),
+.jslot:has(input:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.jplan__radio {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--line-strong);
+  display: grid;
+  place-items: center;
+  align-self: center;
+}
+.jplan.is-on .jplan__radio::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--ink);
+}
+.jplan__name {
+  font-size: 1.7rem;
+}
+.jplan__price {
+  grid-column: 3;
+  grid-row: 1;
+  font-size: 2rem;
+  line-height: 1;
+}
+.jplan__line {
+  grid-column: 2 / -1;
+  color: var(--muted);
+}
+.jplan__list {
+  grid-column: 2 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+}
+.jplan__list li::before {
+  content: '— ';
+  color: var(--muted);
+}
+.jgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px var(--gap);
+}
+.jset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+.jset legend {
+  margin-bottom: 14px;
+}
+.jset:disabled {
+  opacity: 0.45;
+}
+.jlevels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  outline: none;
+}
+.jlevel {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition:
+    border-color 0.3s,
+    background 0.3s,
+    color 0.3s;
+}
+.jlevel.is-on {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.jlevel.is-on .t-label--muted {
+  color: var(--stone-l);
+}
+.jlevel__name {
+  font-weight: 600;
+}
+.jgoals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.jdates {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  outline: none;
+}
+.jdate,
+.jslot {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 12px 4px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+.jdate:hover,
+.jslot:hover {
+  border-color: var(--fg);
+}
+.jdate.is-weekend {
+  background: var(--paper-2);
+}
+.jdate.is-on,
+.jslot.is-on {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.jdate.is-on .t-label--muted,
+.jslot.is-on .t-label--muted {
+  color: var(--stone-l);
+}
+.jdate__n {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.jslots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 6px;
+  outline: none;
+}
+.jslot .t-num {
+  font-size: 1.3rem;
+}
+.jslot.is-taken {
+  cursor: not-allowed;
+  opacity: 0.4;
+  text-decoration: line-through;
+}
+.jslot.is-taken:hover {
+  border-color: var(--line);
+}
+.jreview {
+  border-top: 1px solid var(--line-strong);
+}
+.jreview__row {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.jreview__row button {
+  text-transform: uppercase;
+}
+.jchecks {
+  display: grid;
+  gap: 14px;
+  max-width: 62ch;
+}
+.jnav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.jnav .btn:first-child {
+  gap: 14px;
+}
+
+/* done */
+.join--done {
+  display: block;
+}
+.jdone {
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  gap: 28px;
+  padding-block: calc(var(--nav-h) + 48px) 96px;
+  max-width: 1100px;
+}
+.jdone__mark .mark {
+  width: 56px;
+  height: 56px;
+  color: var(--paper);
+}
+.jdone__mark .mark__c {
+  animation: loader-rise 1.1s var(--ease-out) both;
+}
+.jdone__mark .mark__c--2 {
+  animation-delay: 0.12s;
+}
+.jdone__mark .mark__c--3 {
+  animation-delay: 0.24s;
+}
+@keyframes loader-rise {
+  from {
+    transform: scaleY(0);
+  }
+}
+.jdone h1 {
+  outline: none;
+}
+.jdone h1 em {
+  color: var(--sulfur);
+}
+.jdone__lede {
+  color: var(--stone-l);
+  max-width: 48ch;
+}
+.jdone__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  margin-top: 16px;
+}
+.jdone__steps li {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-strong);
+  color: var(--stone-l);
+  font-size: 15px;
+}
+.jdone__steps .t-label {
+  color: var(--sulfur);
+}
+.jdone__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 1000px) {
+  .join {
+    grid-template-columns: 1fr;
+  }
+  .jsum__in {
+    position: relative;
+    min-height: 0;
+    padding: calc(var(--nav-h) + 24px) var(--pad) 32px;
+  }
+  .jsum__rows div:not(.jsum__total) {
+    display: none;
+  }
+  .jsum__line {
+    display: none;
+  }
+  .jform {
+    padding-top: 40px;
+  }
+}
+@media (max-width: 640px) {
+  .jgrid,
+  .jlevels,
+  .jdone__steps {
+    grid-template-columns: 1fr;
+  }
+  .jsteps ol {
+    grid-template-columns: repeat(4, auto);
+    justify-content: space-between;
+  }
+  .jsteps__i:not(.is-current) button span:last-child {
+    display: none;
+  }
+  .jdates {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .jplan {
+    grid-template-columns: 22px 1fr auto;
+    padding: 16px;
+  }
+  .jreview__row {
+    grid-template-columns: 1fr auto;
+  }
+  .jreview__row dd:first-of-type {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .jnav .btn {
+    padding-inline: 14px;
+    gap: 12px;
+  }
+  .jnav .btn--solid span:first-child {
+    white-space: normal;
+    text-align: left;
+  }
+}
