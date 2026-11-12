@@ -57,7 +57,7 @@ export function Nav() {
 
           <div className="nav__right">
             <OpenStatus className="nav__status" />
-            <TLink to="/join" className="btn btn--sulfur btn--small nav__apply">
+            <TLink to="/join" className="btn btn--signal btn--small nav__apply">
               <span>Apply</span>
               <Arrow />
             </TLink>
@@ -92,7 +92,7 @@ function Menu({ open, onClose, pathname }: { open: boolean; onClose: () => void;
     <div
       id="site-menu"
       ref={ref}
-      className={`menu theme-ink-2 ${open ? 'is-open' : ''}`}
+      className={`menu tone-dark-2 ${open ? 'is-open' : ''}`}
       role="dialog"
       aria-modal="true"
       aria-label="Site menu"
@@ -118,7 +118,7 @@ function Menu({ open, onClose, pathname }: { open: boolean; onClose: () => void;
               </li>
             ))}
           </ol>
-          <TLink to="/join" className="btn btn--sulfur menu__apply" onClick={onClose}>
+          <TLink to="/join" className="btn btn--signal menu__apply" onClick={onClose}>
             <span>Apply for membership</span>
             <Arrow />
           </TLink>

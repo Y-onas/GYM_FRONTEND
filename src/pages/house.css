@@ -43,11 +43,11 @@
   left: 0;
   width: 9px;
   height: 9px;
-  background: var(--ink);
+  background: var(--dark);
 }
 .story__item:nth-child(3)::before {
-  background: var(--sulfur);
-  box-shadow: 0 0 0 1px var(--ink);
+  background: var(--signal);
+  box-shadow: 0 0 0 1px var(--dark);
 }
 .story__year {
   font-size: clamp(2.4rem, 3.6vw, 3.6rem);
@@ -122,7 +122,7 @@
   transition: background 0.3s;
 }
 .inv__row.is-on {
-  background: var(--paper-2);
+  background: var(--light-2);
 }
 .inv__row.is-on th {
   padding-left: 10px;
@@ -154,7 +154,7 @@
 .inv__frame {
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  background: var(--ink-3);
+  background: var(--dark-3);
   animation: inv-frame 0.7s var(--ease-io) both;
 }
 @keyframes inv-frame {
@@ -262,10 +262,10 @@
   }
 }
 .proto__seg--heat {
-  background: var(--sulfur);
+  background: var(--signal);
 }
 .proto__seg--cold {
-  background: var(--paper);
+  background: var(--light);
 }
 .proto__seg--rest {
   background: transparent;
