@@ -39,7 +39,7 @@ export default function House() {
 
 function Story() {
   return (
-    <section className="story theme-paper section" aria-labelledby="story-title">
+    <section className="story tone-base section" aria-labelledby="story-title">
       <div className="wrap">
         <div className="story__head">
           <SectionHead idx="A" label="History" />
@@ -64,7 +64,7 @@ function Story() {
 
 function Floors() {
   return (
-    <section id="floors" className="floors theme-ink section" aria-labelledby="floors-title">
+    <section id="floors" className="floors tone-deep section" aria-labelledby="floors-title">
       <div className="wrap">
         <div className="floors__head">
           <SectionHead idx="B" label="Section drawing" />
@@ -89,7 +89,7 @@ function Inventory() {
   const current = items[Math.min(hover, items.length - 1)] ?? items[0];
 
   return (
-    <section id="inventory" className="inv theme-paper section" aria-labelledby="inv-title">
+    <section id="inventory" className="inv tone-base section" aria-labelledby="inv-title">
       <div className="wrap">
         <div className="inv__head">
           <SectionHead idx="C" label="Inventory" />
@@ -179,7 +179,7 @@ function Vault() {
     { kind: 'rest', min: p.rest, r },
   ]);
   return (
-    <section id="vault" className="vault theme-ink-2 section" aria-labelledby="vault-title">
+    <section id="vault" className="vault tone-deep2 section" aria-labelledby="vault-title">
       <div className="wrap vault__grid">
         <div className="vault__media">
           <MaskImg name="bath" alt="A stone bath in a quiet treatment room in the Vault" sizes="(max-width: 900px) 100vw, 40vw" />

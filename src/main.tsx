@@ -4,7 +4,11 @@ import '@fontsource-variable/archivo/wdth.css';
 import '@fontsource/instrument-serif/400.css';
 import '@fontsource/instrument-serif/400-italic.css';
 import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource-variable/fraunces/index.css';
+import '@fontsource-variable/fraunces/wght-italic.css';
+import './styles/themes.css';
 import './styles/global.css';
+import './styles/skins.css';
 import App from './App';
 
 createRoot(document.getElementById('root')!).render(
