@@ -10,7 +10,7 @@ import './footer.css';
 export function Footer() {
   const { pathname } = useLocation();
   return (
-    <footer className="footer theme-ink">
+    <footer className="footer tone-dark">
       <div className="wrap">
         <div className="footer__top" hidden={pathname === '/join'}>
           <p className="footer__pitch t-h2">
@@ -19,7 +19,7 @@ export function Footer() {
             There’s usually room for one more.
           </p>
           <div className="footer__cta">
-            <TLink to="/join" className="btn btn--sulfur">
+            <TLink to="/join" className="btn btn--signal">
               <span>Apply for membership</span>
               <Arrow />
             </TLink>

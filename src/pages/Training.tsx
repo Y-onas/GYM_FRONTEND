@@ -43,7 +43,7 @@ function Programs() {
   const [open, setOpen] = useState<string>(PROGRAMS[1].id);
   const current = PROGRAMS.find((p) => p.id === open) ?? PROGRAMS[0];
   return (
-    <section className="progs theme-paper section" aria-labelledby="progs-title">
+    <section className="progs tone-light section" aria-labelledby="progs-title">
       <div className="wrap">
         <div className="progs__head">
           <SectionHead idx="A" label="Programmes" />
@@ -116,7 +116,7 @@ function PersonalTraining() {
   const saved = t.rate * pack.sessions - total;
 
   return (
-    <section className="pt theme-ink section" aria-labelledby="pt-title">
+    <section className="pt tone-dark section" aria-labelledby="pt-title">
       <div className="wrap pt__grid">
         <div className="pt__intro">
           <SectionHead idx="B" label="Personal training" />
@@ -202,7 +202,7 @@ function CoachGrid() {
   }, [selected]);
 
   return (
-    <section id="coaches" className="cgrid theme-paper section" aria-labelledby="cgrid-title">
+    <section id="coaches" className="cgrid tone-light section" aria-labelledby="cgrid-title">
       <div className="wrap">
         <div className="progs__head">
           <SectionHead idx="C" label="Coaches" />

@@ -25,8 +25,8 @@
 }
 .billing__save {
   padding: 3px 6px;
-  background: var(--sulfur);
-  color: var(--ink);
+  background: var(--signal);
+  color: var(--dark);
   font-size: 10px;
   white-space: nowrap;
 }

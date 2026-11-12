@@ -48,7 +48,7 @@ function Shell() {
       {playIntro && <Loader onDone={() => setIntroDone(true)} />}
       <Nav />
       <main id="main" tabIndex={-1}>
-        <Suspense fallback={<div style={{ minHeight: '100vh', background: 'var(--ink)' }} />}>
+        <Suspense fallback={<div style={{ minHeight: '100vh', background: 'var(--dark)' }} />}>
           <Routes location={location}>
             <Route path="/" element={<Home />} />
             <Route path="/house" element={<House />} />

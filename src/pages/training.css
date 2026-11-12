@@ -117,7 +117,7 @@
 .progs__frame {
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  background: var(--ink-3);
+  background: var(--dark-3);
   animation: frame-wipe 0.9s var(--ease-io) both;
 }
 @keyframes frame-wipe {
@@ -187,7 +187,7 @@
 .pt__img {
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: var(--ink-3);
+  background: var(--dark-3);
 }
 .calc {
   grid-column: 7 / -1;
@@ -195,7 +195,7 @@
   gap: 32px;
   padding: clamp(24px, 3vw, 44px);
   border: 1px solid var(--line);
-  background: var(--ink-2);
+  background: var(--dark-2);
 }
 .calc__group {
   border: 0;
@@ -231,8 +231,8 @@
   border-color: var(--line-strong);
 }
 .calc__opt.is-on {
-  border-color: var(--sulfur);
-  background: rgb(230 211 74 / 0.06);
+  border-color: var(--signal);
+  background: color-mix(in srgb, var(--signal) 6%, transparent);
 }
 .calc__opt.is-on::after {
   content: '';
@@ -241,10 +241,10 @@
   right: 12px;
   width: 8px;
   height: 8px;
-  background: var(--sulfur);
+  background: var(--signal);
 }
 .calc__opt:has(input:focus-visible) {
-  outline: 2px solid var(--sulfur);
+  outline: 2px solid var(--signal);
   outline-offset: 2px;
 }
 .calc__optname {
@@ -255,7 +255,7 @@
 }
 .calc__note {
   font-size: 13px;
-  color: var(--stone-l);
+  color: var(--mute-l);
 }
 .calc__out {
   display: grid;
@@ -276,10 +276,10 @@
 .calc__total {
   font-size: clamp(3rem, 5vw, 4.6rem);
   line-height: 1;
-  color: var(--sulfur);
+  color: var(--signal);
 }
 .calc__saved {
-  color: var(--stone-l);
+  color: var(--mute-l);
 }
 .calc__fine {
   text-align: center;
@@ -317,7 +317,7 @@
   display: block;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  background: var(--ink-3);
+  background: var(--dark-3);
 }
 .cgrid__img .img {
   transition:
@@ -333,7 +333,7 @@
 .cgrid__quote {
   position: absolute;
   inset: auto 20px 20px;
-  color: var(--paper);
+  color: var(--light);
   font-family: var(--f-serif);
   font-style: italic;
   font-size: 1.5rem;
@@ -398,7 +398,7 @@
 }
 .profile__img {
   position: relative;
-  background: var(--ink-3);
+  background: var(--dark-3);
   min-height: 320px;
 }
 .profile__img .img {
@@ -423,7 +423,7 @@
   font-size: 1.6rem;
   line-height: 1.2;
   padding-left: 18px;
-  border-left: 3px solid var(--sulfur);
+  border-left: 3px solid var(--signal);
 }
 .profile__bio {
   color: var(--muted);

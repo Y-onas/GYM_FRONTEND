@@ -1,21 +1,10 @@
 /* ==========================================================================
    BASALT — design system
-   Basalt ink, limestone paper, one sulfur signal. Sharp edges, hairlines.
+   Raw palettes live in themes.css. Everything here reads role tokens only,
+   so switching [data-theme] on <html> restyles the whole site.
    ========================================================================== */
 
 :root {
-  --ink: #12110f;
-  --ink-2: #1b1a17;
-  --ink-3: #26241f;
-  --paper: #ece7dd;
-  --paper-2: #e2dccf;
-  --bone: #f6f3ed;
-  --stone: #8a8478;
-  --stone-2: #5f5a51;
-  --stone-l: #b8b2a5;
-  --sulfur: #e6d34a;
-  --sulfur-d: #b9a71f;
-
   --f-sans: 'Archivo Variable', Archivo, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --f-serif: 'Instrument Serif', 'Iowan Old Style', 'Times New Roman', serif;
   --f-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
@@ -28,69 +17,74 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-io: cubic-bezier(0.76, 0, 0.24, 1);
   --ease-snap: cubic-bezier(0.65, 0, 0.35, 1);
-
-  /* themable */
-  --bg: var(--paper);
-  --fg: var(--ink);
-  --muted: var(--stone-2);
-  --line: rgb(18 17 15 / 0.16);
-  --line-strong: rgb(18 17 15 / 0.42);
-  --focus: var(--ink);
-  --accent: var(--ink);
 }
 
-.theme-ink {
-  --bg: var(--ink);
-  --fg: var(--paper);
-  --muted: var(--stone);
-  --line: rgb(236 231 221 / 0.14);
-  --line-strong: rgb(236 231 221 / 0.4);
-  --focus: var(--sulfur);
-  --accent: var(--sulfur);
-  background: var(--bg);
-  color: var(--fg);
+/*
+ * Section tones. Each tone maps the active theme's roles onto the semantic
+ * tokens components use (--bg, --fg, --muted, --line, --heading …).
+ * Derived values must be declared on the same element as --fg, because a
+ * custom property inherits its already-resolved value.
+ */
+:root,
+.tone-light,
+.tone-light-3,
+.tone-dark,
+.tone-dark-2,
+.tone-signal {
+  --line: color-mix(in srgb, var(--fg) 16%, transparent);
+  --line-strong: color-mix(in srgb, var(--fg) 42%, transparent);
 }
-.theme-ink-2 {
-  --bg: var(--ink-2);
-  --fg: var(--paper);
-  --muted: var(--stone);
-  --line: rgb(236 231 221 / 0.14);
-  --line-strong: rgb(236 231 221 / 0.4);
-  --focus: var(--sulfur);
-  --accent: var(--sulfur);
-  background: var(--bg);
-  color: var(--fg);
+:root,
+.tone-light {
+  --bg: var(--light);
+  --fg: var(--text-light);
+  --muted: var(--mute-2);
+  --heading: var(--head-light);
+  --focus: var(--fg);
+  --accent: var(--fg);
+  --error: var(--danger);
 }
-.theme-paper {
-  --bg: var(--paper);
-  --fg: var(--ink);
-  --muted: var(--stone-2);
-  --line: rgb(18 17 15 / 0.16);
-  --line-strong: rgb(18 17 15 / 0.42);
-  --focus: var(--ink);
-  --accent: var(--ink);
-  background: var(--bg);
-  color: var(--fg);
+.tone-light-3 {
+  --bg: var(--light-3);
+  --fg: var(--text-light);
+  --muted: var(--mute-2);
+  --heading: var(--head-light);
+  --focus: var(--fg);
+  --accent: var(--fg);
+  --error: var(--danger);
 }
-.theme-bone {
-  --bg: var(--bone);
-  --fg: var(--ink);
-  --muted: var(--stone-2);
-  --line: rgb(18 17 15 / 0.14);
-  --line-strong: rgb(18 17 15 / 0.42);
-  --focus: var(--ink);
-  --accent: var(--ink);
-  background: var(--bg);
-  color: var(--fg);
+.tone-dark {
+  --bg: var(--dark);
+  --fg: var(--text-dark);
+  --muted: var(--mute);
+  --heading: var(--head-dark);
+  --focus: var(--signal);
+  --accent: var(--signal);
+  --error: var(--danger-on-dark);
 }
-.theme-sulfur {
-  --bg: var(--sulfur);
-  --fg: var(--ink);
-  --muted: rgb(18 17 15 / 0.66);
-  --line: rgb(18 17 15 / 0.2);
-  --line-strong: rgb(18 17 15 / 0.5);
-  --focus: var(--ink);
-  --accent: var(--ink);
+.tone-dark-2 {
+  --bg: var(--dark-2);
+  --fg: var(--text-dark);
+  --muted: var(--mute);
+  --heading: var(--head-dark);
+  --focus: var(--signal);
+  --accent: var(--signal);
+  --error: var(--danger-on-dark);
+}
+.tone-signal {
+  --bg: var(--signal);
+  --fg: var(--signal-ink);
+  --muted: color-mix(in srgb, var(--signal-ink) 72%, transparent);
+  --heading: var(--signal-ink);
+  --focus: var(--signal-ink);
+  --accent: var(--signal-ink);
+  --error: var(--signal-ink);
+}
+.tone-light,
+.tone-light-3,
+.tone-dark,
+.tone-dark-2,
+.tone-signal {
   background: var(--bg);
   color: var(--fg);
 }
@@ -108,7 +102,7 @@ html {
 }
 body {
   margin: 0;
-  background: var(--ink);
+  background: var(--dark);
   color: var(--fg);
   font-family: var(--f-sans);
   font-size: 17px;
@@ -165,8 +159,8 @@ button {
   cursor: pointer;
 }
 ::selection {
-  background: var(--sulfur);
-  color: var(--ink);
+  background: var(--signal);
+  color: var(--dark);
 }
 :focus-visible {
   outline: 2px solid var(--focus);
@@ -201,8 +195,8 @@ body::after {
   left: 12px;
   z-index: 10000;
   padding: 12px 16px;
-  background: var(--sulfur);
-  color: var(--ink);
+  background: var(--signal);
+  color: var(--dark);
   font: 600 13px/1 var(--f-mono);
   text-transform: uppercase;
   transform: translateY(-200%);
@@ -411,16 +405,16 @@ em,
   --btn-fill-fg: var(--bg);
   border-color: var(--fg);
 }
-.theme-ink .btn--solid,
-.theme-ink-2 .btn--solid {
-  --btn-fill-fg: var(--ink);
+.tone-dark .btn--solid,
+.tone-dark-2 .btn--solid {
+  --btn-fill-fg: var(--dark);
 }
-.btn--sulfur {
-  --btn-bg: var(--sulfur);
-  --btn-fg: var(--ink);
-  --btn-fill: var(--paper);
-  --btn-fill-fg: var(--ink);
-  border-color: var(--sulfur);
+.btn--signal {
+  --btn-bg: var(--signal);
+  --btn-fg: var(--dark);
+  --btn-fill: var(--light);
+  --btn-fill-fg: var(--dark);
+  border-color: var(--signal);
 }
 .btn--small {
   min-height: 42px;
@@ -479,8 +473,8 @@ em,
   background: var(--fg);
 }
 .tag--heat::before {
-  background: var(--sulfur);
-  box-shadow: 0 0 0 1px rgb(18 17 15 / 0.25);
+  background: var(--signal);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--dark) 25%, transparent);
 }
 .tag--time::before {
   background: transparent;
@@ -523,7 +517,7 @@ em,
 .img-mask {
   position: relative;
   overflow: hidden;
-  background: var(--ink-3);
+  background: var(--dark-3);
 }
 .img-mask > .img {
   transform: scale(1.12);
@@ -602,8 +596,8 @@ select.field__input {
   cursor: pointer;
 }
 select.field__input option {
-  color: var(--ink);
-  background: var(--paper);
+  color: var(--dark);
+  background: var(--light);
 }
 .field__input::placeholder {
   color: var(--muted);
@@ -617,20 +611,20 @@ select.field__input option {
   box-shadow: 0 2px 0 0 var(--focus);
 }
 .field[data-invalid='true'] .field__input {
-  border-bottom-color: #c4572b;
+  border-bottom-color: var(--error);
 }
 .field__error {
   font-family: var(--f-mono);
   font-size: 12px;
-  color: #c4572b;
+  color: var(--error);
 }
-.theme-ink .field__error,
-.theme-ink-2 .field__error,
-.theme-ink .field[data-invalid='true'] .field__input {
-  color: #f08a5d;
-  border-bottom-color: #f08a5d;
+.tone-dark .field__error,
+.tone-dark-2 .field__error,
+.tone-dark .field[data-invalid='true'] .field__input {
+  color: var(--error);
+  border-bottom-color: var(--error);
 }
-.theme-ink .field[data-invalid='true'] .field__input {
+.tone-dark .field[data-invalid='true'] .field__input {
   color: var(--fg);
 }
 

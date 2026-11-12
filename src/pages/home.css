@@ -28,9 +28,9 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgb(18 17 15 / 0.65) 0%, rgb(18 17 15 / 0) 30%),
-    linear-gradient(0deg, rgb(18 17 15 / 0.85) 0%, rgb(18 17 15 / 0) 45%),
-    linear-gradient(90deg, rgb(18 17 15 / 0.55) 0%, rgb(18 17 15 / 0) 60%);
+    linear-gradient(180deg, color-mix(in srgb, var(--dark) 65%, transparent) 0%, color-mix(in srgb, var(--dark) 0%, transparent) 30%),
+    linear-gradient(0deg, color-mix(in srgb, var(--dark) 85%, transparent) 0%, color-mix(in srgb, var(--dark) 0%, transparent) 45%),
+    linear-gradient(90deg, color-mix(in srgb, var(--dark) 55%, transparent) 0%, color-mix(in srgb, var(--dark) 0%, transparent) 60%);
 }
 .hero__grid {
   position: relative;
@@ -45,7 +45,7 @@
   grid-column: 1 / -1;
   display: flex;
   justify-content: space-between;
-  color: var(--stone-l);
+  color: var(--mute-l);
   padding-bottom: 16px;
   border-bottom: 1px solid var(--line);
   opacity: 0;
@@ -60,7 +60,7 @@
   padding-block: 48px;
 }
 .hero__title em {
-  color: var(--sulfur);
+  color: var(--signal);
 }
 .hero__aside {
   grid-column: 8 / span 5;
@@ -80,7 +80,7 @@
 }
 .hero__lede {
   font-size: clamp(1rem, 1.2vw, 1.15rem);
-  color: var(--stone-l);
+  color: var(--mute-l);
   max-width: 44ch;
 }
 .hero__ctas {
@@ -89,14 +89,14 @@
   gap: 10px;
 }
 .hero__status {
-  color: var(--paper);
+  color: var(--light);
 }
 .hero__word {
   position: relative;
   padding-inline: calc(var(--pad) * 0.5);
   line-height: 0.74;
   margin-bottom: -0.035em;
-  color: var(--paper);
+  color: var(--light);
   transform: translate3d(0, calc(var(--p) * 22%), 0);
   user-select: none;
 }
@@ -118,12 +118,12 @@
   align-items: center;
   gap: 12px;
   writing-mode: vertical-rl;
-  color: var(--stone-l);
+  color: var(--mute-l);
 }
 .hero__scroll-line {
   width: 1px;
   height: 64px;
-  background: rgb(236 231 221 / 0.25);
+  background: color-mix(in srgb, var(--light) 25%, transparent);
   position: relative;
   overflow: hidden;
 }
@@ -131,7 +131,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--sulfur);
+  background: var(--signal);
   animation: scroll-line 2.2s var(--ease-io) infinite;
 }
 @keyframes scroll-line {
@@ -230,7 +230,7 @@
   overflow: hidden;
   display: flex;
   align-items: stretch;
-  box-shadow: 0 -30px 60px -20px rgb(0 0 0 / 0.35);
+  box-shadow: 0 -30px 60px -20px color-mix(in srgb, var(--shadow) 35%, transparent);
 }
 .pillar__in {
   width: 100%;
@@ -283,8 +283,8 @@
   background: var(--accent);
   flex: none;
 }
-.theme-sulfur .pillar__facts li::before {
-  background: var(--ink);
+.tone-signal .pillar__facts li::before {
+  background: var(--dark);
 }
 .pillar__img {
   grid-column: 7 / -1;
@@ -297,10 +297,10 @@
   position: absolute;
   inset: 0;
 }
-.theme-sulfur .pillar__img .img-mask {
-  background: var(--sulfur-d);
+.tone-signal .pillar__img .img-mask {
+  background: var(--signal-d);
 }
-.theme-sulfur .img {
+.tone-signal .img {
   mix-blend-mode: multiply;
 }
 @media (max-width: 900px) {
@@ -378,7 +378,7 @@
 }
 .tour__img {
   overflow: hidden;
-  background: var(--ink-3);
+  background: var(--dark-3);
   min-height: 0;
 }
 .tour__img .img {
@@ -399,7 +399,7 @@
 }
 .tour__lvl {
   font-size: 2.6rem;
-  color: var(--sulfur);
+  color: var(--signal);
   line-height: 0.85;
 }
 .tour__sum {
@@ -430,11 +430,11 @@
     color 0.5s;
 }
 .tour__end:hover {
-  background: var(--sulfur);
-  color: var(--ink);
+  background: var(--signal);
+  color: var(--dark);
 }
 .tour__end:hover .t-label {
-  color: var(--ink);
+  color: var(--dark);
 }
 .tour__end-arrow {
   width: 40px;
@@ -458,7 +458,7 @@
 .tour__progress span {
   position: absolute;
   inset: 0 var(--pad);
-  background: var(--sulfur);
+  background: var(--signal);
   transform: scaleX(0);
   transform-origin: left;
 }
@@ -625,7 +625,7 @@
   text-align: right;
 }
 .today__left.is-low {
-  color: #a5521f;
+  color: var(--warn);
 }
 .today__left.is-full {
   color: var(--muted);
@@ -700,7 +700,7 @@
   left: var(--gap);
   right: var(--gap);
   height: 3px;
-  background: var(--sulfur);
+  background: var(--signal);
 }
 .mteaser__top {
   display: flex;
@@ -713,7 +713,7 @@
   font-size: 1.6rem;
 }
 .mteaser__flag {
-  color: var(--sulfur);
+  color: var(--signal);
 }
 .mteaser__price {
   display: flex;
@@ -733,7 +733,7 @@
 .mteaser__list li {
   padding: 9px 0;
   border-bottom: 1px solid var(--line);
-  color: var(--stone-l);
+  color: var(--mute-l);
   font-size: 15px;
 }
 .mteaser__foot {
