@@ -43,7 +43,7 @@ Five complete identities are selectable from the swatches in the top-right corne
 | Atelier | Refined luxury | Espresso, cream, bronze · warm-graded photos · arched frames · spaced small caps |
 | Grove | Natural strength | Oat, sage, forest · daylight photos in organic blobs · soft serif · rounded panels |
 | Pulse | Athletic energy | Cobalt, signal orange · screen-blended athlete poster · condensed heavy caps · hard shadows |
-| Orbit | Future lab | Black, cyan, ultraviolet · duotone photos · blueprint grids, glass HUD · expanded light caps |
+| Velvet | Members' club | Oxblood, blush, cream · rose-toned photo half-frame · heavy lowercase grotesque with serif italics · small radii |
 
 - `src/styles/themes.css` is the only file with raw colour values. Each theme decides what every section role looks like (`tone-hero`, `tone-deep`, `tone-deep2`, `tone-base`, `tone-raised`, `tone-accent`, `tone-footer`), so one theme can be light-led and another fully dark. It also sets typography, shape, button and photo-grade tokens.
 - `src/styles/global.css` maps roles to the semantic tokens components read (`--bg`, `--fg`, `--muted`, `--accent`, `--cta`, `--surface` …).
